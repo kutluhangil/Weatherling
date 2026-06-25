@@ -1,0 +1,127 @@
+msgid ""
+msgstr ""
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "APP_NAME"
+msgstr "Weatherling"
+
+msgid "TAGLINE"
+msgstr "A tiny companion that lives in your real weather."
+
+# --- Common ---
+msgid "CONTINUE"
+msgstr "Continue"
+
+msgid "SKIP"
+msgstr "Skip"
+
+msgid "BACK"
+msgstr "Back"
+
+msgid "SAVE"
+msgstr "Save"
+
+msgid "SETTINGS"
+msgstr "Settings"
+
+# --- Onboarding ---
+msgid "ONBOARD_NAME"
+msgstr "Give your companion a name"
+
+msgid "ONBOARD_AGE"
+msgstr "Your age shapes your companion's world."
+
+msgid "ONBOARD_FAITH"
+msgstr "Faith / Tradition (optional)"
+
+msgid "ONBOARD_LOCATION"
+msgstr "Location, to bring your real weather to life"
+
+msgid "GUEST_CONTINUE"
+msgstr "Continue as guest"
+
+# --- Seasons ---
+msgid "SEASON_SPRING"
+msgstr "Spring"
+
+msgid "SEASON_SUMMER"
+msgstr "Summer"
+
+msgid "SEASON_AUTUMN"
+msgstr "Autumn"
+
+msgid "SEASON_WINTER"
+msgstr "Winter"
+
+# --- Day phases ---
+msgid "PHASE_DAWN"
+msgstr "Dawn"
+
+msgid "PHASE_DAY"
+msgstr "Day"
+
+msgid "PHASE_DUSK"
+msgstr "Dusk"
+
+msgid "PHASE_NIGHT"
+msgstr "Night"
+
+# --- Weather ---
+msgid "WEATHER_CLEAR"
+msgstr "Clear"
+
+msgid "WEATHER_CLOUDS"
+msgstr "Cloudy"
+
+msgid "WEATHER_FOG"
+msgstr "Foggy"
+
+msgid "WEATHER_RAIN"
+msgstr "Rainy"
+
+msgid "WEATHER_SNOW"
+msgstr "Snowy"
+
+msgid "WEATHER_THUNDER"
+msgstr "Stormy"
+
+msgid "WEATHER_WINDY"
+msgstr "Windy"
+
+# --- Needs ---
+msgid "NEED_HUNGER"
+msgstr "Hunger"
+
+msgid "NEED_ENERGY"
+msgstr "Energy"
+
+msgid "NEED_HYGIENE"
+msgstr "Hygiene"
+
+msgid "NEED_HAPPINESS"
+msgstr "Happiness"
+
+msgid "NEED_HEALTH"
+msgstr "Health"
+
+msgid "NEED_SOCIAL"
+msgstr "Social"
+
+# --- Actions (bottom bar) ---
+msgid "ACTION_FEED"
+msgstr "Feed"
+
+msgid "ACTION_PLAY"
+msgstr "Play"
+
+msgid "ACTION_SKILLS"
+msgstr "Skills"
+
+msgid "ACTION_SHOP"
+msgstr "Shop"
+
+msgid "ACTION_MENU"
+msgstr "Menu"

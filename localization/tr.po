@@ -1,0 +1,127 @@
+msgid ""
+msgstr ""
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "APP_NAME"
+msgstr "Weatherling"
+
+msgid "TAGLINE"
+msgstr "Senin havanda yaşayan minik bir yoldaş."
+
+# --- Ortak ---
+msgid "CONTINUE"
+msgstr "Devam"
+
+msgid "SKIP"
+msgstr "Atla"
+
+msgid "BACK"
+msgstr "Geri"
+
+msgid "SAVE"
+msgstr "Kaydet"
+
+msgid "SETTINGS"
+msgstr "Ayarlar"
+
+# --- Onboarding ---
+msgid "ONBOARD_NAME"
+msgstr "Yaratığına bir isim ver"
+
+msgid "ONBOARD_AGE"
+msgstr "Yaşın, yaratığının dünyasını şekillendirir."
+
+msgid "ONBOARD_FAITH"
+msgstr "İnanç / Gelenek (opsiyonel)"
+
+msgid "ONBOARD_LOCATION"
+msgstr "Gerçek havanı yaşatmak için konum"
+
+msgid "GUEST_CONTINUE"
+msgstr "Misafir olarak devam et"
+
+# --- Mevsimler ---
+msgid "SEASON_SPRING"
+msgstr "İlkbahar"
+
+msgid "SEASON_SUMMER"
+msgstr "Yaz"
+
+msgid "SEASON_AUTUMN"
+msgstr "Sonbahar"
+
+msgid "SEASON_WINTER"
+msgstr "Kış"
+
+# --- Gün fazları ---
+msgid "PHASE_DAWN"
+msgstr "Şafak"
+
+msgid "PHASE_DAY"
+msgstr "Gündüz"
+
+msgid "PHASE_DUSK"
+msgstr "Akşam"
+
+msgid "PHASE_NIGHT"
+msgstr "Gece"
+
+# --- Hava ---
+msgid "WEATHER_CLEAR"
+msgstr "Açık"
+
+msgid "WEATHER_CLOUDS"
+msgstr "Bulutlu"
+
+msgid "WEATHER_FOG"
+msgstr "Sisli"
+
+msgid "WEATHER_RAIN"
+msgstr "Yağmurlu"
+
+msgid "WEATHER_SNOW"
+msgstr "Karlı"
+
+msgid "WEATHER_THUNDER"
+msgstr "Fırtınalı"
+
+msgid "WEATHER_WINDY"
+msgstr "Rüzgârlı"
+
+# --- İhtiyaçlar ---
+msgid "NEED_HUNGER"
+msgstr "Açlık"
+
+msgid "NEED_ENERGY"
+msgstr "Enerji"
+
+msgid "NEED_HYGIENE"
+msgstr "Hijyen"
+
+msgid "NEED_HAPPINESS"
+msgstr "Mutluluk"
+
+msgid "NEED_HEALTH"
+msgstr "Sağlık"
+
+msgid "NEED_SOCIAL"
+msgstr "Sosyal"
+
+# --- Eylemler (alt bar) ---
+msgid "ACTION_FEED"
+msgstr "Besle"
+
+msgid "ACTION_PLAY"
+msgstr "Oyna"
+
+msgid "ACTION_SKILLS"
+msgstr "Skill"
+
+msgid "ACTION_SHOP"
+msgstr "Mağaza"
+
+msgid "ACTION_MENU"
+msgstr "Menü"

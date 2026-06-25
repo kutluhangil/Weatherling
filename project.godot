@@ -1,0 +1,58 @@
+; Engine configuration file.
+; Weatherling — cozy weather companion.
+; Godot 4.7 stable · Compatibility renderer · portrait mobile · pixel-perfect.
+
+config_version=5
+
+[application]
+
+config/name="Weatherling"
+config/version="0.1.0"
+config/description="Senin gerçek havanda, gerçek saatinde yaşayan minik bir yoldaş."
+run/main_scene="res://scenes/boot/boot.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+run/low_processor_mode=true
+config/icon="res://icon.svg"
+
+[autoload]
+
+EventBus="*res://autoload/event_bus.gd"
+Settings="*res://autoload/settings.gd"
+Localization="*res://autoload/localization.gd"
+SaveService="*res://autoload/save_service.gd"
+TimeService="*res://autoload/time_service.gd"
+WeatherService="*res://autoload/weather_service.gd"
+NeedsService="*res://autoload/needs_service.gd"
+LifeStageService="*res://autoload/life_stage_service.gd"
+FaithService="*res://autoload/faith_service.gd"
+SkillService="*res://autoload/skill_service.gd"
+EconomyService="*res://autoload/economy_service.gd"
+AuthService="*res://autoload/auth_service.gd"
+NotificationService="*res://autoload/notification_service.gd"
+AudioManager="*res://autoload/audio_manager.gd"
+SceneManager="*res://autoload/scene_manager.gd"
+GameManager="*res://autoload/game_manager.gd"
+
+[display]
+
+window/size/viewport_width=540
+window/size/viewport_height=960
+window/size/window_width_override=405
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation="portrait"
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://localization/tr.po", "res://localization/en.po")
+locale/fallback="en"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/canvas_textures/default_texture_filter=0
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
+environment/defaults/default_clear_color=Color(0.105882, 0.117647, 0.180392, 1)

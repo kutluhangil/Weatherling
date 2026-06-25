@@ -1,0 +1,35 @@
+# Godot 4+ ----------------------------------------------------------
+.godot/
+*.translation
+
+# Export / build çıktıları ------------------------------------------
+/build/
+/export/
+*.apk
+*.aab
+*.ipa
+*.aar
+
+# İmzalama — repoya ASLA girmez -------------------------------------
+*.keystore
+*.jks
+*.p12
+*.cer
+release.keystore
+upload-keystore.jks
+debug.keystore
+
+# Sırlar -------------------------------------------------------------
+.env
+*.env
+export_credentials.cfg
+secrets.gd
+**/service_role*
+supabase/.temp/
+
+# OS / editör --------------------------------------------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*~
