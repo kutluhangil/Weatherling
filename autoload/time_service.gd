@@ -64,7 +64,7 @@ func is_day() -> bool:
 
 
 func get_season() -> String:
-	var month := Time.get_datetime_dict_from_system().month
+	var month: int = Time.get_datetime_dict_from_system().month
 	return season_for(month, hemisphere_north)
 
 

@@ -80,7 +80,7 @@ func _schedule_daily_checkin() -> void:
 		return
 	var now := int(Time.get_unix_time_from_system())
 	var d := Time.get_datetime_dict_from_system()
-	var minutes_now := d.hour * 60 + d.minute
+	var minutes_now: int = d.hour * 60 + d.minute
 	var target := 19 * 60          # ~19:00
 	var delay_min := target - minutes_now
 	if delay_min <= 0:
