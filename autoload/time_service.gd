@@ -34,6 +34,13 @@ func set_sun_times(sunrise_unix: int, sunset_unix: int) -> void:
 	_tick()
 
 
+## Yerel gün-içi dakika doğrudan (Open-Meteo timezone=auto ISO'dan; Faz 3).
+func set_sun_minutes(sr_min: int, ss_min: int) -> void:
+	sunrise_minutes = clampi(sr_min, 0, 1439)
+	sunset_minutes = clampi(ss_min, 0, 1439)
+	_tick()
+
+
 # --- Saf hesaplar ---------------------------------------------------
 
 func get_phase() -> String:

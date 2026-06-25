@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="FaithProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/faith_profile.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "christianity"
+display_name_key = "FAITH_CHRISTIANITY"
+rhythm_type = "weekday"
+rituals = [{
+"day": 0,
+"minute": 600,
+"ritual": "service"
+}]
+decor_keys = Array[String](["christmas", "easter"])
+notification_enabled_default = false
+uses_location = false

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/hud/needs_panel.gd" id="1_np"]
+
+[node name="NeedsPanel" type="VBoxContainer"]
+offset_left = 16.0
+offset_top = 92.0
+offset_right = 212.0
+offset_bottom = 320.0
+script = ExtResource("1_np")

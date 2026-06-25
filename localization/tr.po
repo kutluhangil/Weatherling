@@ -125,3 +125,294 @@ msgstr "Mağaza"
 
 msgid "ACTION_MENU"
 msgstr "Menü"
+
+msgid "ACTION_CLEAN"
+msgstr "Temizle"
+
+msgid "ACTION_SLEEP"
+msgstr "Uyut"
+
+msgid "CLOSE"
+msgstr "Kapat"
+
+msgid "APPLY"
+msgstr "Uygula"
+
+msgid "MENU_WARDROBE"
+msgstr "Gardırop"
+
+msgid "WARDROBE_EMPTY"
+msgstr "Henüz kozmetik yok."
+
+# --- Skill'ler ---
+msgid "SKILL_CREATIVITY_1"
+msgstr "Yaratıcılık I"
+
+msgid "SKILL_PLAY_1"
+msgstr "Oyun I"
+
+msgid "SKILL_MUSIC_1"
+msgstr "Müzik I"
+
+msgid "SKILL_CAREER_1"
+msgstr "Kariyer I"
+
+msgid "SKILL_FITNESS_1"
+msgstr "Form I"
+
+msgid "SKILL_WISDOM_1"
+msgstr "Bilgelik I"
+
+# --- Kozmetikler ---
+msgid "ITEM_HAT_STRAW"
+msgstr "Hasır Şapka"
+
+msgid "ITEM_SCARF_RED"
+msgstr "Kırmızı Atkı"
+
+msgid "ITEM_GLASSES"
+msgstr "Gözlük"
+
+msgid "ITEM_FLOWER_CROWN"
+msgstr "Çiçek Tacı"
+
+msgid "ITEM_LANTERN"
+msgstr "Fener"
+
+# --- Hesap / bulut ---
+msgid "MENU_ACCOUNT"
+msgstr "Hesap"
+
+msgid "EMAIL"
+msgstr "E-posta"
+
+msgid "PASSWORD"
+msgstr "Şifre"
+
+msgid "SIGN_IN"
+msgstr "Giriş"
+
+msgid "SIGN_UP"
+msgstr "Kayıt ol"
+
+msgid "MAGIC_LINK"
+msgstr "Sihirli bağlantı"
+
+msgid "SIGN_OUT"
+msgstr "Çıkış yap"
+
+msgid "EXPORT_DATA"
+msgstr "Veriyi dışa aktar"
+
+msgid "DELETE_ACCOUNT"
+msgstr "Hesabı sil"
+
+msgid "EXPORTED"
+msgstr "Dışa aktarıldı:"
+
+msgid "CHECK_EMAIL"
+msgstr "E-postanı kontrol et 📧"
+
+msgid "ACCOUNT_UNCONFIGURED"
+msgstr "Bulut kapalı — yerel modda oyna"
+
+msgid "ACCOUNT_ERROR"
+msgstr "Bir hata oldu, tekrar dene"
+
+msgid "ACCOUNT_GUEST"
+msgstr "Misafir olarak oynuyorsun"
+
+# --- Bildirimler ---
+msgid "NOTIF_PRAYER"
+msgstr "Huzurlu bir an için vakit geldi 🕊️"
+
+msgid "NOTIF_DAILY"
+msgstr "Yaratığın seni bekliyor 🌙"
+
+msgid "NOTIF_NEEDS"
+msgstr "Yaratığının bir şeye ihtiyacı var"
+
+# --- Ayarlar ---
+msgid "SET_AUDIO"
+msgstr "Ses"
+
+msgid "SET_MASTER"
+msgstr "Genel"
+
+msgid "SET_MUSIC"
+msgstr "Müzik"
+
+msgid "SET_AMBIENT"
+msgstr "Ortam"
+
+msgid "SET_SFX"
+msgstr "Efekt"
+
+msgid "SET_A11Y"
+msgstr "Erişilebilirlik"
+
+msgid "SET_REDUCED"
+msgstr "Hareketi azalt"
+
+msgid "SET_NOTIFS"
+msgstr "Bildirimler"
+
+msgid "NOTIF_CAT_NEEDS"
+msgstr "İhtiyaç"
+
+msgid "NOTIF_CAT_WEATHER"
+msgstr "Hava"
+
+msgid "NOTIF_CAT_FAITH"
+msgstr "Vakit"
+
+msgid "NOTIF_CAT_DAILY"
+msgstr "Günlük"
+
+msgid "SET_GENERAL"
+msgstr "Genel"
+
+msgid "SET_LANGUAGE"
+msgstr "Dil"
+
+msgid "SET_LOCATION"
+msgstr "Konum"
+
+msgid "LOC_AUTO"
+msgstr "Otomatik"
+
+msgid "LOC_MANUAL"
+msgstr "Manuel"
+
+msgid "LOC_OFF"
+msgstr "Kapalı"
+
+# --- Yemekler ---
+msgid "FOOD_APPLE"
+msgstr "Elma"
+
+msgid "FOOD_CANDY"
+msgstr "Şeker"
+
+msgid "FOOD_SOUP"
+msgstr "Çorba"
+
+msgid "FOOD_COFFEE"
+msgstr "Kahve"
+
+msgid "FOOD_SALAD"
+msgstr "Salata"
+
+# --- Ruh hali ---
+msgid "MOOD_JOYFUL"
+msgstr "Çok mutlu! ✨"
+
+msgid "MOOD_CONTENT"
+msgstr "Keyfim yerinde."
+
+msgid "MOOD_SLEEPY"
+msgstr "Uykum geldi..."
+
+msgid "MOOD_HUNGRY"
+msgstr "Karnım acıktı!"
+
+msgid "MOOD_LONELY"
+msgstr "Biraz yalnızım."
+
+msgid "MOOD_COLD"
+msgstr "Üşüyorum, brr!"
+
+msgid "MOOD_HOT"
+msgstr "Çok sıcak..."
+
+msgid "MOOD_GRUMPY"
+msgstr "Keyfim kaçtı."
+
+# --- Onboarding / evreler / inanç ---
+msgid "ONBOARD_START"
+msgstr "Başla"
+
+msgid "STAGE_FILIZ"
+msgstr "Filiz"
+
+msgid "STAGE_TOMURCUK"
+msgstr "Tomurcuk"
+
+msgid "STAGE_CICEK"
+msgstr "Çiçek"
+
+msgid "STAGE_MEYVE"
+msgstr "Meyve"
+
+msgid "STAGE_HASAT"
+msgstr "Hasat"
+
+msgid "STAGE_KOK"
+msgstr "Kök"
+
+msgid "STAGE_CINAR"
+msgstr "Çınar"
+
+msgid "FAITH_NONE"
+msgstr "Belirtmek istemiyorum"
+
+msgid "FAITH_ISLAM"
+msgstr "İslam"
+
+msgid "FAITH_CHRISTIANITY"
+msgstr "Hristiyanlık"
+
+msgid "FAITH_JUDAISM"
+msgstr "Musevilik"
+
+msgid "FAITH_HINDUISM"
+msgstr "Hinduizm"
+
+msgid "FAITH_BUDDHISM"
+msgstr "Budizm"
+
+msgid "FAITH_SPIRITUAL"
+msgstr "Maneviyat"
+
+# --- Evreye özel idle diyalogları ---
+msgid "DLG_FILIZ_1"
+msgstr "Hadi oyna oyna!"
+
+msgid "DLG_FILIZ_2"
+msgstr "Bak, bir kelebek! 🦋"
+
+msgid "DLG_TOMURCUK_1"
+msgstr "Bugün canım biraz sıkkın."
+
+msgid "DLG_TOMURCUK_2"
+msgstr "Yeni bir şarkı buldum 🎧"
+
+msgid "DLG_CICEK_1"
+msgstr "Kahvesiz olmaz ☕"
+
+msgid "DLG_CICEK_2"
+msgstr "Hedeflerim büyük!"
+
+msgid "DLG_MEYVE_1"
+msgstr "Bugün güzel geçti."
+
+msgid "DLG_MEYVE_2"
+msgstr "Biraz dinlensem iyi olacak..."
+
+msgid "DLG_HASAT_1"
+msgstr "Bahçem nasıl acaba 🪴"
+
+msgid "DLG_HASAT_2"
+msgstr "Sağlık her şeyden önce."
+
+msgid "DLG_KOK_1"
+msgstr "Eski günler aklımda..."
+
+msgid "DLG_KOK_2"
+msgstr "Çayım hazır mı? ☕"
+
+msgid "DLG_CINAR_1"
+msgstr "Şükür, huzurluyum 🌟"
+
+msgid "DLG_CINAR_2"
+msgstr "Yavaş ama tatlı bir gün."

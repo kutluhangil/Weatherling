@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/onboarding/onboarding.gd" id="1_ob"]
+
+[node name="Onboarding" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ob")
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.105882, 0.117647, 0.180392, 1)
+
+[node name="Center" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Center"]
+custom_minimum_size = Vector2(360, 0)
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Center/VBox"]
+horizontal_alignment = 1
+text = "Weatherling"
+
+[node name="NameLabel" type="Label" parent="Center/VBox"]
+text = "İsim"
+
+[node name="NameEdit" type="LineEdit" parent="Center/VBox"]
+
+[node name="AgeLabel" type="Label" parent="Center/VBox"]
+text = "Yaş"
+
+[node name="AgeSpin" type="SpinBox" parent="Center/VBox"]
+min_value = 1.0
+max_value = 110.0
+value = 25.0
+
+[node name="FaithLabel" type="Label" parent="Center/VBox"]
+text = "İnanç"
+
+[node name="FaithOpt" type="OptionButton" parent="Center/VBox"]
+
+[node name="CityLabel" type="Label" parent="Center/VBox"]
+text = "Şehir"
+
+[node name="CityEdit" type="LineEdit" parent="Center/VBox"]
+
+[node name="Start" type="Button" parent="Center/VBox"]
+text = "Başla"

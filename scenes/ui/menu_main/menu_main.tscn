@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/menu_main/menu_main.gd" id="1_mm"]
+
+[node name="MenuMain" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mm")
+
+[node name="Dim" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.55)
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -240.0
+offset_right = 150.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Panel/VBox"]
+horizontal_alignment = 1
+text = "Menü"
+
+[node name="Skills" type="Button" parent="Panel/VBox"]
+text = "Skill"
+
+[node name="Shop" type="Button" parent="Panel/VBox"]
+text = "Mağaza"
+
+[node name="Wardrobe" type="Button" parent="Panel/VBox"]
+text = "Gardırop"
+
+[node name="Faith" type="Button" parent="Panel/VBox"]
+text = "İnanç"
+
+[node name="Account" type="Button" parent="Panel/VBox"]
+text = "Hesap"
+
+[node name="Settings" type="Button" parent="Panel/VBox"]
+text = "Ayarlar"
+
+[node name="Close" type="Button" parent="Panel/VBox"]
+text = "Kapat"

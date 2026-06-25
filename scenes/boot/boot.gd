@@ -6,5 +6,7 @@ extends Control
 
 func _ready() -> void:
 	await get_tree().create_timer(0.6).timeout
-	# TODO(Faz 5): if not SaveService.has_save(): -> onboarding.tscn
-	SceneManager.change_scene("res://scenes/home/home.tscn")
+	if SaveService.has_save():
+		SceneManager.change_scene("res://scenes/home/home.tscn")
+	else:
+		SceneManager.change_scene("res://scenes/onboarding/onboarding.tscn")

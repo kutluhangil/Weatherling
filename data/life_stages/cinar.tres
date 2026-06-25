@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LifeStageConfig" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/life_stage_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "cinar"
+display_name_key = "STAGE_CINAR"
+min_age = 75
+max_age = 999
+sprite_set = "cinar"
+palette = "cinar"
+personality_traits = Array[String](["serene", "wise", "grateful"])
+hunger_decay_rate = 2.5
+energy_decay_rate = 2.0
+hygiene_decay_rate = 1.6
+happiness_decay_rate = 1.8
+social_decay_rate = 1.8
+sleep_hours = Vector2(20, 6)
+nap_count = 3
+preferred_foods = Array[String](["soup", "warm"])
+disliked_foods = Array[String](["candy", "snack"])
+eating_style_key = "patient"
+activity_keys = Array[String](["rest", "sun", "memories", "chat"])
+skill_branches = Array[String](["deep_wisdom", "legacy"])
+special_events = Array[String](["wisdom_share", "peace", "gratitude"])
+idle_dialogue_keys = Array[String](["DLG_CINAR_1", "DLG_CINAR_2"])
+request_keys = Array[String]([])

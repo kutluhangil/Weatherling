@@ -23,6 +23,7 @@ signal bond_xp_gained(amount: int)
 signal bond_level_up(level: int)
 signal coins_changed(total: int)
 signal item_purchased(item_id: String)
+signal cosmetics_changed(equipped: Dictionary)
 signal skill_unlocked(skill_id: String)
 
 # --- İnanç ----------------------------------------------------------

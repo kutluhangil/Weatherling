@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LifeStageConfig" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/life_stage_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "kok"
+display_name_key = "STAGE_KOK"
+min_age = 60
+max_age = 74
+sprite_set = "kok"
+palette = "kok"
+personality_traits = Array[String](["peaceful", "nostalgic", "routine_loving"])
+hunger_decay_rate = 3.0
+energy_decay_rate = 2.5
+hygiene_decay_rate = 1.8
+happiness_decay_rate = 2.0
+social_decay_rate = 2.0
+sleep_hours = Vector2(21, 6)
+nap_count = 2
+preferred_foods = Array[String](["soup", "warm", "coffee"])
+disliked_foods = Array[String](["candy", "snack"])
+eating_style_key = "ritual"
+activity_keys = Array[String](["read", "garden", "walk", "nap"])
+skill_branches = Array[String](["wisdom", "storytelling", "calm", "garden"])
+special_events = Array[String](["memory_share", "visit", "calm_celebration", "nostalgia"])
+idle_dialogue_keys = Array[String](["DLG_KOK_1", "DLG_KOK_2"])
+request_keys = Array[String]([])

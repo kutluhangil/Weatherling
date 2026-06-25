@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FaithProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/faith_profile.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "buddhism"
+display_name_key = "FAITH_BUDDHISM"
+rhythm_type = "daily_times"
+rituals = [{
+"minute": 420,
+"ritual": "meditation"
+}]
+decor_keys = Array[String]([])
+notification_enabled_default = false
+uses_location = false

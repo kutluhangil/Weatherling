@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FoodItem" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/food_item.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "apple"
+display_name_key = "FOOD_APPLE"
+hunger_restore = 22.0
+happiness_delta = 6.0
+health_delta = 2.0
+energy_delta = 0.0
+price = 0
+unlocked_by_default = true
+tags = Array[String](["fruit", "sweet", "healthy"])

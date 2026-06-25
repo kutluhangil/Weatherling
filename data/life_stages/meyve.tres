@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LifeStageConfig" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/life_stage_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "meyve"
+display_name_key = "STAGE_MEYVE"
+min_age = 30
+max_age = 44
+sprite_set = "meyve"
+palette = "meyve"
+personality_traits = Array[String](["responsible", "balanced", "goal_oriented"])
+hunger_decay_rate = 4.0
+energy_decay_rate = 3.5
+hygiene_decay_rate = 2.0
+happiness_decay_rate = 2.0
+social_decay_rate = 2.2
+sleep_hours = Vector2(23, 7)
+nap_count = 0
+preferred_foods = Array[String](["soup", "healthy", "coffee", "veg"])
+disliked_foods = Array[String](["candy"])
+eating_style_key = "tidy"
+activity_keys = Array[String](["work", "hobby", "garden"])
+skill_branches = Array[String](["mastery", "leadership", "hobby", "health"])
+special_events = Array[String](["promotion", "big_goal", "vacation_need", "balance_crisis"])
+idle_dialogue_keys = Array[String](["DLG_MEYVE_1", "DLG_MEYVE_2"])
+request_keys = Array[String]([])

@@ -1,35 +1,47 @@
-## Ana yaşayan dünya. (Plan §10.2) Faz 0: sinyal akışını kanıtlayan debug ekranı.
-## Faz 1: Creature buraya (CreatureAnchor) gelir. Faz 2-3: ışık shader'ı + hava VFX.
+## Ana yaşayan dünya. (Plan §10.2) Yaratık + hava/ışık VFX + bakım HUD.
 extends Control
 
 @onready var info: Label = $HUD/Info
+@onready var action_bar: Control = $HUD/ActionBar
+@onready var feed_panel: Control = $HUD/PanelFeed
+@onready var faith_panel: Control = $HUD/PanelFaith
+@onready var menu: Control = $HUD/MenuMain
+@onready var skills_panel: Control = $HUD/PanelSkills
+@onready var shop_panel: Control = $HUD/PanelShop
+@onready var wardrobe_panel: Control = $HUD/PanelWardrobe
+@onready var account_panel: Control = $HUD/PanelAccount
+@onready var settings_panel: Control = $HUD/PanelSettings
 
-const WEATHER_NAMES := ["clear", "clouds", "fog", "rain", "snow", "thunder", "windy"]
+const WEATHER_NAMES := ["CLEAR", "CLOUDS", "FOG", "RAIN", "SNOW", "THUNDER", "WINDY"]
 
 
 func _ready() -> void:
-	EventBus.weather_changed.connect(_on_weather_changed)
+	action_bar.feed_pressed.connect(feed_panel.open)
+	action_bar.menu_pressed.connect(_on_menu)
+	menu.open_skills.connect(skills_panel.open)
+	menu.open_shop.connect(shop_panel.open)
+	menu.open_wardrobe.connect(wardrobe_panel.open)
+	menu.open_faith.connect(faith_panel.open)
+	menu.open_account.connect(account_panel.open)
+	menu.open_settings.connect(settings_panel.open)
+	EventBus.weather_changed.connect(func(_s, _t, _d): _refresh())
 	EventBus.time_phase_changed.connect(func(_p): _refresh())
-	EventBus.season_changed.connect(func(_s): _refresh())
-	EventBus.need_changed.connect(func(_k, _v): _refresh())
+	EventBus.offline_mode_changed.connect(func(_o): _refresh())
 	_refresh()
 
 
-func _on_weather_changed(_state: int, _temp: float, _is_day: bool) -> void:
-	_refresh()
+func _on_menu() -> void:
+	menu.open()
 
 
 func _refresh() -> void:
 	var s: CreatureState = GameManager.current_state()
 	var cname := s.creature_name if s != null else "?"
-	var stage := s.life_stage if s != null else "-"
-	var moon: Dictionary = TimeService.get_moon()
-	var w: int = WeatherService.state
-	info.text = "Weatherling — Faz 0\n\n" + \
-		"Yaratık: %s\n" % cname + \
-		"Evre: %s\n" % stage + \
-		"Faz: %s\n" % TimeService.get_phase() + \
-		"Mevsim: %s\n" % TimeService.get_season() + \
-		"Ay: %s\n" % moon.name + \
-		"Hava: %s (%.0f°C)\n" % [WEATHER_NAMES[w], WeatherService.temp_c] + \
-		("• çevrimdışı" if WeatherService.is_offline else "")
+	var phase_key := "PHASE_" + TimeService.get_phase().to_upper()
+	var weather_key := "WEATHER_" + WEATHER_NAMES[WeatherService.state]
+	var line := "%s · %s · %s %.0f°C" % [
+		cname, tr(phase_key), tr(weather_key), WeatherService.temp_c
+	]
+	if WeatherService.is_offline:
+		line += " · ⚠"
+	info.text = line

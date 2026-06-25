@@ -1,0 +1,20 @@
+<svg width="140" height="160" viewBox="0 0 140 160" xmlns="http://www.w3.org/2000/svg">
+  <!-- Faz 1 placeholder yaratık gövdesi. Faz 5'te evreye göre piksel sprite seti gelir. -->
+  <ellipse cx="52" cy="150" rx="16" ry="7" fill="#5b86c4"/>
+  <ellipse cx="88" cy="150" rx="16" ry="7" fill="#5b86c4"/>
+  <path d="M70 14
+           C104 14 122 44 122 86
+           C122 126 100 150 70 150
+           C40 150 18 126 18 86
+           C18 44 36 14 70 14 Z"
+        fill="#8fc1ff"/>
+  <path d="M70 60
+           C92 60 104 78 104 100
+           C104 124 88 140 70 140
+           C52 140 36 124 36 100
+           C36 78 48 60 70 60 Z"
+        fill="#d4e8ff"/>
+  <circle cx="48" cy="92" r="9" fill="#ffb3c1" opacity="0.65"/>
+  <circle cx="92" cy="92" r="9" fill="#ffb3c1" opacity="0.65"/>
+  <path d="M58 30 q12 -10 24 0" stroke="#5b86c4" stroke-width="4" fill="none" stroke-linecap="round"/>
+</svg>

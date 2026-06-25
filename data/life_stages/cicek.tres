@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LifeStageConfig" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/life_stage_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "cicek"
+display_name_key = "STAGE_CICEK"
+min_age = 18
+max_age = 29
+sprite_set = "cicek"
+palette = "cicek"
+personality_traits = Array[String](["ambitious", "social", "energetic"])
+hunger_decay_rate = 4.5
+energy_decay_rate = 4.0
+hygiene_decay_rate = 2.2
+happiness_decay_rate = 2.5
+social_decay_rate = 3.0
+sleep_hours = Vector2(0, 8)
+nap_count = 0
+preferred_foods = Array[String](["coffee", "snack"])
+disliked_foods = Array[String]([])
+eating_style_key = "onthego"
+activity_keys = Array[String](["work", "gym", "social", "study"])
+skill_branches = Array[String](["career", "fitness", "finance", "relationship"])
+special_events = Array[String](["job_interview", "first_salary", "fitness_goal", "date", "burnout"])
+idle_dialogue_keys = Array[String](["DLG_CICEK_1", "DLG_CICEK_2"])
+request_keys = Array[String]([])

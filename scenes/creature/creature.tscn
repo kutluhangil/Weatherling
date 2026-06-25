@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/creature/creature.gd" id="1_creature"]
+[ext_resource type="Texture2D" path="res://art/creature/placeholder/body.svg" id="2_body"]
+[ext_resource type="Texture2D" path="res://art/creature/placeholder/eye.svg" id="3_eye"]
+
+[node name="Creature" type="Node2D"]
+script = ExtResource("1_creature")
+
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="Body" type="Sprite2D" parent="Visual"]
+texture = ExtResource("2_body")
+
+[node name="Face" type="Node2D" parent="Visual"]
+
+[node name="EyeL" type="Sprite2D" parent="Visual/Face"]
+position = Vector2(-20, -4)
+texture = ExtResource("3_eye")
+
+[node name="EyeR" type="Sprite2D" parent="Visual/Face"]
+position = Vector2(20, -4)
+texture = ExtResource("3_eye")
+
+[node name="BlinkTimer" type="Timer" parent="."]
+one_shot = true

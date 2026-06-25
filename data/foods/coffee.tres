@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FoodItem" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/food_item.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "coffee"
+display_name_key = "FOOD_COFFEE"
+hunger_restore = 4.0
+happiness_delta = 8.0
+health_delta = -1.0
+energy_delta = 18.0
+price = 6
+unlocked_by_default = true
+tags = Array[String](["coffee", "warm", "drink"])

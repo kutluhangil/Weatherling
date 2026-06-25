@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LifeStageConfig" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/life_stage_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "filiz"
+display_name_key = "STAGE_FILIZ"
+min_age = 4
+max_age = 12
+sprite_set = "filiz"
+palette = "filiz"
+personality_traits = Array[String](["curious", "energetic", "playful"])
+hunger_decay_rate = 6.0
+energy_decay_rate = 5.0
+hygiene_decay_rate = 3.0
+happiness_decay_rate = 3.0
+social_decay_rate = 2.5
+sleep_hours = Vector2(20, 7)
+nap_count = 1
+preferred_foods = Array[String](["candy", "sweet", "fruit", "snack"])
+disliked_foods = Array[String](["veg"])
+eating_style_key = "messy"
+activity_keys = Array[String](["play", "study"])
+skill_branches = Array[String](["creativity", "play", "learning", "imagination"])
+special_events = Array[String](["birthday", "tooth_fairy", "new_toy", "nightmare"])
+idle_dialogue_keys = Array[String](["DLG_FILIZ_1", "DLG_FILIZ_2"])
+request_keys = Array[String]([])

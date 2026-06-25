@@ -43,6 +43,10 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation="portrait"
 
+[gui]
+
+theme/custom="res://theme.tres"
+
 [internationalization]
 
 locale/translations=PackedStringArray("res://localization/tr.po", "res://localization/en.po")

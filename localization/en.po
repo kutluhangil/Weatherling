@@ -125,3 +125,294 @@ msgstr "Shop"
 
 msgid "ACTION_MENU"
 msgstr "Menu"
+
+msgid "ACTION_CLEAN"
+msgstr "Clean"
+
+msgid "ACTION_SLEEP"
+msgstr "Sleep"
+
+msgid "CLOSE"
+msgstr "Close"
+
+msgid "APPLY"
+msgstr "Apply"
+
+msgid "MENU_WARDROBE"
+msgstr "Wardrobe"
+
+msgid "WARDROBE_EMPTY"
+msgstr "No cosmetics yet."
+
+# --- Skills ---
+msgid "SKILL_CREATIVITY_1"
+msgstr "Creativity I"
+
+msgid "SKILL_PLAY_1"
+msgstr "Play I"
+
+msgid "SKILL_MUSIC_1"
+msgstr "Music I"
+
+msgid "SKILL_CAREER_1"
+msgstr "Career I"
+
+msgid "SKILL_FITNESS_1"
+msgstr "Fitness I"
+
+msgid "SKILL_WISDOM_1"
+msgstr "Wisdom I"
+
+# --- Cosmetics ---
+msgid "ITEM_HAT_STRAW"
+msgstr "Straw Hat"
+
+msgid "ITEM_SCARF_RED"
+msgstr "Red Scarf"
+
+msgid "ITEM_GLASSES"
+msgstr "Glasses"
+
+msgid "ITEM_FLOWER_CROWN"
+msgstr "Flower Crown"
+
+msgid "ITEM_LANTERN"
+msgstr "Lantern"
+
+# --- Account / cloud ---
+msgid "MENU_ACCOUNT"
+msgstr "Account"
+
+msgid "EMAIL"
+msgstr "Email"
+
+msgid "PASSWORD"
+msgstr "Password"
+
+msgid "SIGN_IN"
+msgstr "Sign in"
+
+msgid "SIGN_UP"
+msgstr "Sign up"
+
+msgid "MAGIC_LINK"
+msgstr "Magic link"
+
+msgid "SIGN_OUT"
+msgstr "Sign out"
+
+msgid "EXPORT_DATA"
+msgstr "Export data"
+
+msgid "DELETE_ACCOUNT"
+msgstr "Delete account"
+
+msgid "EXPORTED"
+msgstr "Exported:"
+
+msgid "CHECK_EMAIL"
+msgstr "Check your email 📧"
+
+msgid "ACCOUNT_UNCONFIGURED"
+msgstr "Cloud off — playing locally"
+
+msgid "ACCOUNT_ERROR"
+msgstr "Something went wrong, try again"
+
+msgid "ACCOUNT_GUEST"
+msgstr "Playing as guest"
+
+# --- Notifications ---
+msgid "NOTIF_PRAYER"
+msgstr "Time for a peaceful moment 🕊️"
+
+msgid "NOTIF_DAILY"
+msgstr "Your companion misses you 🌙"
+
+msgid "NOTIF_NEEDS"
+msgstr "Your companion needs something"
+
+# --- Settings ---
+msgid "SET_AUDIO"
+msgstr "Audio"
+
+msgid "SET_MASTER"
+msgstr "Master"
+
+msgid "SET_MUSIC"
+msgstr "Music"
+
+msgid "SET_AMBIENT"
+msgstr "Ambient"
+
+msgid "SET_SFX"
+msgstr "SFX"
+
+msgid "SET_A11Y"
+msgstr "Accessibility"
+
+msgid "SET_REDUCED"
+msgstr "Reduce motion"
+
+msgid "SET_NOTIFS"
+msgstr "Notifications"
+
+msgid "NOTIF_CAT_NEEDS"
+msgstr "Needs"
+
+msgid "NOTIF_CAT_WEATHER"
+msgstr "Weather"
+
+msgid "NOTIF_CAT_FAITH"
+msgstr "Prayer"
+
+msgid "NOTIF_CAT_DAILY"
+msgstr "Daily"
+
+msgid "SET_GENERAL"
+msgstr "General"
+
+msgid "SET_LANGUAGE"
+msgstr "Language"
+
+msgid "SET_LOCATION"
+msgstr "Location"
+
+msgid "LOC_AUTO"
+msgstr "Auto"
+
+msgid "LOC_MANUAL"
+msgstr "Manual"
+
+msgid "LOC_OFF"
+msgstr "Off"
+
+# --- Foods ---
+msgid "FOOD_APPLE"
+msgstr "Apple"
+
+msgid "FOOD_CANDY"
+msgstr "Candy"
+
+msgid "FOOD_SOUP"
+msgstr "Soup"
+
+msgid "FOOD_COFFEE"
+msgstr "Coffee"
+
+msgid "FOOD_SALAD"
+msgstr "Salad"
+
+# --- Mood ---
+msgid "MOOD_JOYFUL"
+msgstr "So happy! ✨"
+
+msgid "MOOD_CONTENT"
+msgstr "Feeling good."
+
+msgid "MOOD_SLEEPY"
+msgstr "So sleepy..."
+
+msgid "MOOD_HUNGRY"
+msgstr "I'm hungry!"
+
+msgid "MOOD_LONELY"
+msgstr "A little lonely."
+
+msgid "MOOD_COLD"
+msgstr "Brr, I'm cold!"
+
+msgid "MOOD_HOT"
+msgstr "It's so hot..."
+
+msgid "MOOD_GRUMPY"
+msgstr "Feeling grumpy."
+
+# --- Onboarding / stages / faith ---
+msgid "ONBOARD_START"
+msgstr "Start"
+
+msgid "STAGE_FILIZ"
+msgstr "Sprout"
+
+msgid "STAGE_TOMURCUK"
+msgstr "Bud"
+
+msgid "STAGE_CICEK"
+msgstr "Bloom"
+
+msgid "STAGE_MEYVE"
+msgstr "Fruit"
+
+msgid "STAGE_HASAT"
+msgstr "Harvest"
+
+msgid "STAGE_KOK"
+msgstr "Root"
+
+msgid "STAGE_CINAR"
+msgstr "Elder Tree"
+
+msgid "FAITH_NONE"
+msgstr "Prefer not to say"
+
+msgid "FAITH_ISLAM"
+msgstr "Islam"
+
+msgid "FAITH_CHRISTIANITY"
+msgstr "Christianity"
+
+msgid "FAITH_JUDAISM"
+msgstr "Judaism"
+
+msgid "FAITH_HINDUISM"
+msgstr "Hinduism"
+
+msgid "FAITH_BUDDHISM"
+msgstr "Buddhism"
+
+msgid "FAITH_SPIRITUAL"
+msgstr "Spirituality"
+
+# --- Stage idle dialogues ---
+msgid "DLG_FILIZ_1"
+msgstr "Let's play, let's play!"
+
+msgid "DLG_FILIZ_2"
+msgstr "Look, a butterfly! 🦋"
+
+msgid "DLG_TOMURCUK_1"
+msgstr "Feeling a bit moody today."
+
+msgid "DLG_TOMURCUK_2"
+msgstr "Found a new song 🎧"
+
+msgid "DLG_CICEK_1"
+msgstr "Can't do without coffee ☕"
+
+msgid "DLG_CICEK_2"
+msgstr "My goals are big!"
+
+msgid "DLG_MEYVE_1"
+msgstr "Today was a good day."
+
+msgid "DLG_MEYVE_2"
+msgstr "I could use some rest..."
+
+msgid "DLG_HASAT_1"
+msgstr "I wonder how my garden is 🪴"
+
+msgid "DLG_HASAT_2"
+msgstr "Health comes first."
+
+msgid "DLG_KOK_1"
+msgstr "The old days come to mind..."
+
+msgid "DLG_KOK_2"
+msgstr "Is my tea ready? ☕"
+
+msgid "DLG_CINAR_1"
+msgstr "Grateful and at peace 🌟"
+
+msgid "DLG_CINAR_2"
+msgstr "A slow but sweet day."

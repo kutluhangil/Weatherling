@@ -7,6 +7,9 @@ var _state: CreatureState = null
 
 func _ready() -> void:
 	EventBus.state_loaded.connect(func(s): _state = s)
+	# Kazanç kaynakları (pay-to-win yok, nazik birikim). (Plan §6.8)
+	EventBus.creature_interacted.connect(func(_k): add_coins(1))
+	EventBus.bond_level_up.connect(func(lvl): add_coins(lvl * 10))
 
 
 func balance() -> int:
