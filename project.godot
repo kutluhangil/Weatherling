@@ -1,14 +1,18 @@
 ; Engine configuration file.
-; Weatherling — cozy weather companion.
-; Godot 4.7 stable · Compatibility renderer · portrait mobile · pixel-perfect.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
 
 config_version=5
 
 [application]
 
 config/name="Weatherling"
-config/version="0.1.0"
 config/description="Senin gerçek havanda, gerçek saatinde yaşayan minik bir yoldaş."
+config/version="0.1.0"
 run/main_scene="res://scenes/boot/boot.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 run/low_processor_mode=true
@@ -50,13 +54,12 @@ theme/custom="res://theme.tres"
 [internationalization]
 
 locale/translations=PackedStringArray("res://localization/tr.po", "res://localization/en.po")
-locale/fallback="en"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.105882, 0.117647, 0.180392, 1)
 2d/snap/snap_2d_transforms_to_pixel=true
 2d/snap/snap_2d_vertices_to_pixel=true
-environment/defaults/default_clear_color=Color(0.105882, 0.117647, 0.180392, 1)
