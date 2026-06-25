@@ -44,7 +44,10 @@ func set_stage(stage_id: String) -> void:
 
 
 func _on_state_loaded(state: Resource) -> void:
-	var id := state.life_stage if state.life_stage != "" else stage_for_age(state.user_age)
+	var cs := state as CreatureState
+	if cs == null:
+		return
+	var id := cs.life_stage if cs.life_stage != "" else stage_for_age(cs.user_age)
 	set_stage(id)
 
 
