@@ -33,6 +33,9 @@ signal devotion_time(faith: String, ritual: String)
 signal random_event(event_id: String)
 signal seasonal_event(event_id: String)
 
+# --- Başarımlar / koleksiyon (Plan §22) -----------------------------
+signal achievement_unlocked(id: String)        # yeni başarım açıldı (bir kez)
+
 # --- Kayıt / hesap --------------------------------------------------
 signal state_loaded(state: Resource)                   # CreatureState — GameManager yayar
 signal save_requested()

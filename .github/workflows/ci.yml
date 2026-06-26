@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  tests:
+    name: GDScript tests (headless)
+    runs-on: ubuntu-latest
+    env:
+      GODOT_VERSION: "4.7-stable"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download Godot ${{ env.GODOT_VERSION }}
+        run: |
+          set -e
+          ZIP="Godot_v${GODOT_VERSION}_linux.x86_64.zip"
+          wget -q "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}/${ZIP}"
+          unzip -q "$ZIP"
+          mv "Godot_v${GODOT_VERSION}_linux.x86_64" godot
+          chmod +x godot
+
+      - name: Import project (build .godot cache)
+        run: ./godot --headless --import || true
+
+      - name: Run tests
+        run: ./godot --headless -s tests/run_tests.gd

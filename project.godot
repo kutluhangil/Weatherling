@@ -35,6 +35,7 @@ AuthService="*res://autoload/auth_service.gd"
 NotificationService="*res://autoload/notification_service.gd"
 AudioManager="*res://autoload/audio_manager.gd"
 SceneManager="*res://autoload/scene_manager.gd"
+AchievementService="*res://autoload/achievement_service.gd"
 GameManager="*res://autoload/game_manager.gd"
 
 [display]

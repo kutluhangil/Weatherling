@@ -416,3 +416,55 @@ msgstr "Grateful and at peace 🌟"
 
 msgid "DLG_CINAR_2"
 msgstr "A slow but sweet day."
+
+# --- Achievements / collection ---
+msgid "MENU_ACHIEVEMENTS"
+msgstr "Achievements"
+
+msgid "ACH_TITLE"
+msgstr "Achievements & Collection"
+
+msgid "ACH_PROGRESS"
+msgstr "Unlocked: %d / %d"
+
+msgid "ACH_WEATHER_SEEN"
+msgstr "Weather seen: %d / 7"
+
+msgid "ACH_first_day"
+msgstr "First Day"
+
+msgid "ACH_week_together"
+msgstr "A Week Together"
+
+msgid "ACH_hundred_days"
+msgstr "100 Days"
+
+msgid "ACH_first_rain"
+msgstr "Your First Rain"
+
+msgid "ACH_first_snow"
+msgstr "Your First Snow"
+
+msgid "ACH_weather_watcher"
+msgstr "Weather Watcher"
+
+msgid "ACH_storm_chaser"
+msgstr "Storm Chaser"
+
+msgid "ACH_four_seasons"
+msgstr "Four Seasons"
+
+msgid "ACH_moongazer"
+msgstr "Moongazer"
+
+msgid "ACH_beloved"
+msgstr "Beloved"
+
+msgid "ACH_well_fed"
+msgstr "Well Fed"
+
+msgid "ACH_close_bond"
+msgstr "Close Bond"
+
+msgid "ACH_soulmates"
+msgstr "Soulmates"

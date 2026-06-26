@@ -416,3 +416,55 @@ msgstr "Şükür, huzurluyum 🌟"
 
 msgid "DLG_CINAR_2"
 msgstr "Yavaş ama tatlı bir gün."
+
+# --- Başarımlar / koleksiyon ---
+msgid "MENU_ACHIEVEMENTS"
+msgstr "Başarımlar"
+
+msgid "ACH_TITLE"
+msgstr "Başarımlar & Koleksiyon"
+
+msgid "ACH_PROGRESS"
+msgstr "Açılan: %d / %d"
+
+msgid "ACH_WEATHER_SEEN"
+msgstr "Görülen hava: %d / 7"
+
+msgid "ACH_first_day"
+msgstr "İlk Gün"
+
+msgid "ACH_week_together"
+msgstr "Bir Hafta Birlikte"
+
+msgid "ACH_hundred_days"
+msgstr "100 Gün"
+
+msgid "ACH_first_rain"
+msgstr "İlk Yağmurun"
+
+msgid "ACH_first_snow"
+msgstr "İlk Karın"
+
+msgid "ACH_weather_watcher"
+msgstr "Hava Gözcüsü"
+
+msgid "ACH_storm_chaser"
+msgstr "Fırtına Avcısı"
+
+msgid "ACH_four_seasons"
+msgstr "Dört Mevsim"
+
+msgid "ACH_moongazer"
+msgstr "Ay İzleyici"
+
+msgid "ACH_beloved"
+msgstr "Sevgili"
+
+msgid "ACH_well_fed"
+msgstr "Karnı Tok"
+
+msgid "ACH_close_bond"
+msgstr "Yakın Bağ"
+
+msgid "ACH_soulmates"
+msgstr "Can Yoldaşı"

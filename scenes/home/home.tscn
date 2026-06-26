@@ -1,6 +1,8 @@
-[gd_scene load_steps=17 format=3]
+[gd_scene load_steps=19 format=3]
 
 [ext_resource type="Script" path="res://scenes/home/home.gd" id="1_home"]
+[ext_resource type="Script" path="res://scenes/ui/hud/hud_safe_area.gd" id="17_safe"]
+[ext_resource type="PackedScene" path="res://scenes/ui/panel_achievements/panel_achievements.tscn" id="18_ach"]
 [ext_resource type="PackedScene" path="res://scenes/creature/creature.tscn" id="2_creature"]
 [ext_resource type="PackedScene" path="res://scenes/weather_vfx/sky.tscn" id="3_sky"]
 [ext_resource type="Script" path="res://scenes/weather_vfx/day_night.gd" id="4_daynight"]
@@ -48,6 +50,7 @@ position = Vector2(270, 560)
 [node name="WeatherVFX" parent="." instance=ExtResource("5_vfx")]
 
 [node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("17_safe")
 
 [node name="Info" type="Label" parent="HUD"]
 anchor_right = 1.0
@@ -81,3 +84,5 @@ vertical_alignment = 1
 [node name="PanelAccount" parent="HUD" instance=ExtResource("15_account")]
 
 [node name="PanelSettings" parent="HUD" instance=ExtResource("16_settings")]
+
+[node name="PanelAchievements" parent="HUD" instance=ExtResource("18_ach")]

@@ -40,6 +40,8 @@ func _ready() -> void:
 	EventBus.weather_changed.connect(_on_weather_changed)
 	EventBus.state_loaded.connect(func(_s): _apply_stage_look())
 	EventBus.devotion_time.connect(_on_devotion)
+	EventBus.settings_changed.connect(_on_settings_changed)
+	_update_motion()
 	_on_phase_changed(TimeService.get_phase())  # açılışta gece ise uyu
 
 
@@ -97,6 +99,21 @@ func _reduced() -> bool:
 	return bool(Settings.get_value("a11y/reduced_motion"))
 
 
+## Hareket azaltma: nefes _process'ini TAMAMEN durdur → her kare scale yazımı bitsin,
+## low_processor_mode boştaki render'ı gerçekten kessin (Plan §15, §10.4).
+func _update_motion() -> void:
+	if _reduced():
+		set_process(false)
+		visual.scale = _visual_base
+	else:
+		set_process(true)
+
+
+func _on_settings_changed(key: String, _value: Variant) -> void:
+	if key == "a11y/reduced_motion":
+		_update_motion()
+
+
 # --- Dokunma (manuel hit-test; root viewport physics-picking'e bağımlı değil) ---
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -113,6 +130,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _on_petted() -> void:
+	GameManager.request_active_frames()  # squash/kalp akıcı olsun, sonra idle FPS'e dön
 	NeedsService.apply_care("pet")
 	if state == State.SLEEP:
 		set_state(State.IDLE)  # uyuyorsa nazikçe uyandır

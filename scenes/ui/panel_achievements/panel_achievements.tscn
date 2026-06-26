@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/panel_achievements/panel_achievements.gd" id="1_pa"]
+
+[node name="PanelAchievements" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pa")
+
+[node name="Dim" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.55)
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -260.0
+offset_right = 180.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Panel/VBox"]
+horizontal_alignment = 1
+text = "Başarımlar & Koleksiyon"
+
+[node name="Progress" type="Label" parent="Panel/VBox"]
+horizontal_alignment = 1
+text = "Açılan: 0 / 13"
+
+[node name="Weather" type="Label" parent="Panel/VBox"]
+horizontal_alignment = 1
+text = "Görülen hava: 0 / 7"
+
+[node name="Scroll" type="ScrollContainer" parent="Panel/VBox"]
+custom_minimum_size = Vector2(320, 360)
+size_flags_vertical = 3
+
+[node name="List" type="VBoxContainer" parent="Panel/VBox/Scroll"]
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="Close" type="Button" parent="Panel/VBox"]
+text = "Kapat"
