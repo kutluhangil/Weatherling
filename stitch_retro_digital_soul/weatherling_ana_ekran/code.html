@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Weatherling - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&family=JetBrains+Mono:wght@100..900&family=Space+Grotesk:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Pixel Art 9-Patch Simulation */
+        .pixel-border-premium {
+            border: 4px solid #E87C3E;
+            box-shadow: 
+                inset -4px -4px 0px 0px rgba(0,0,0,0.3),
+                inset 4px 4px 0px 0px rgba(255,255,255,0.1);
+            background: #2b1931;
+        }
+
+        .pixel-button-chunky {
+            position: relative;
+            transition: all 0.1s ease;
+            box-shadow: 0 4px 0 0 #480e76;
+        }
+
+        .pixel-button-chunky:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 0 #480e76;
+        }
+
+        /* Breathing Animation for Filiz */
+        @keyframes breathe {
+            0%, 100% { transform: scale(1, 1); }
+            50% { transform: scale(1.05, 0.95); }
+        }
+        .animate-breathe {
+            animation: breathe 3s ease-in-out infinite;
+        }
+
+        /* Pixel Rain Effect */
+        .rain-drop {
+            position: absolute;
+            width: 2px;
+            height: 6px;
+            background: #FFC078;
+            opacity: 0.6;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh); }
+        }
+
+        /* Glass Shine for Bars */
+        .bar-shine {
+            background: linear-gradient(to bottom, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 40%);
+        }
+
+        /* Atmosphere Overlay */
+        .dusk-overlay {
+            background: linear-gradient(180deg, rgba(26, 15, 31, 0) 0%, rgba(59, 38, 87, 0.4) 100%);
+            pointer-events: none;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-dim": "#1d0c24",
+                "on-tertiary-fixed-variant": "#5b4300",
+                "surface-container-lowest": "#18071e",
+                "error": "#ffb4ab",
+                "surface": "#1d0c24",
+                "on-primary-fixed-variant": "#743500",
+                "on-secondary-container": "#d4a5ff",
+                "tertiary-container": "#daaf48",
+                "secondary-container": "#622f91",
+                "surface-container-low": "#26152c",
+                "dusk-amber": "#E87C3E",
+                "deep-plum": "#1A0F1F",
+                "on-secondary-fixed-variant": "#602c8e",
+                "background": "#1d0c24",
+                "secondary-fixed-dim": "#deb7ff",
+                "on-secondary-fixed": "#2d0050",
+                "surface-variant": "#412e47",
+                "on-primary-fixed": "#321300",
+                "inverse-on-surface": "#3c2942",
+                "on-background": "#f6d9fa",
+                "surface-container-highest": "#412e47",
+                "horizon-glow": "#FFC078",
+                "primary-fixed": "#ffdbc8",
+                "tertiary-fixed-dim": "#edc157",
+                "surface-tint": "#ffb68a",
+                "status-energy": "#4CC9F0",
+                "status-love": "#F72585",
+                "on-surface-variant": "#dac2b4",
+                "on-tertiary-fixed": "#251a00",
+                "inverse-surface": "#f6d9fa",
+                "tertiary-fixed": "#ffdf9b",
+                "outline-variant": "#544339",
+                "primary-fixed-dim": "#ffb68a",
+                "on-primary-container": "#743500",
+                "on-tertiary-container": "#5a4300",
+                "secondary": "#deb7ff",
+                "primary-container": "#ff9d5c",
+                "on-error-container": "#ffdad6",
+                "twilight-indigo": "#3B2657",
+                "status-hunger": "#FF4D6D",
+                "on-secondary": "#480e76",
+                "outline": "#a28c80",
+                "inverse-primary": "#95490d",
+                "tertiary": "#f8ca60",
+                "on-surface": "#f6d9fa",
+                "on-tertiary": "#3f2e00",
+                "secondary-fixed": "#f1dbff",
+                "surface-bright": "#46324c",
+                "on-primary": "#522300",
+                "primary": "#ffc4a1",
+                "on-error": "#690005",
+                "error-container": "#93000a",
+                "surface-container": "#2b1931",
+                "surface-container-high": "#36233c"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "pixel-unit": "4px",
+                "gutter": "16px",
+                "margin-desktop": "32px",
+                "margin-mobile": "20px",
+                "container-padding": "12px",
+                "touch-target-min": "48px"
+            },
+            "fontFamily": {
+                "body-md": ["Hanken Grotesk"],
+                "label-sm": ["JetBrains Mono"],
+                "label-md": ["JetBrains Mono"],
+                "headline-lg-mobile": ["Space Grotesk"],
+                "body-lg": ["Hanken Grotesk"],
+                "pixel-display": ["Space Grotesk"],
+                "headline-md": ["Space Grotesk"],
+                "headline-lg": ["Space Grotesk"]
+            },
+            "fontSize": {
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
+                "pixel-display": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-dim text-on-surface overflow-hidden h-screen font-body-md">
+<!-- Environmental Background Layers -->
+<div class="fixed inset-0 z-0">
+<!-- Parallax Background: Lush Forest at Dusk -->
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A high-fidelity 16-bit pixel art forest clearing at dusk. The scene is illuminated by a warm orange and deep purple sky, casting long, soft shadows. In the foreground, stylized pixel-art ferns and ancient trees with glowing moss frame the clearing. The lighting is cinematic, inspired by Sea of Stars, with lush textures and a magical, atmospheric cozy vibe." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAuni4Z_ZfDwSU_aEGjMwR_kbLw9Anf4heT9w2L_B43MesFAjosVka3JS0k2t1Qll_njyIRrUEW5nZYrnUEiMeidB1ytFIZu9chGm4PkOicTkWVANYI0Es4igMHe8F1yavRy-SAb-X_NLTXh1hmdiMV3PQT1koQNAPRcPc_p3AnYluyD7kFZshxk0coxcqtD-SbP7zbasDk6Us3eMSGI71S2UKdUGe3KKoIG1WDmzSyyGRSB-9L04SuXK89FPqW7UzEWBQjRkJHlOE')"></div>
+<div class="absolute inset-0 dusk-overlay"></div>
+<!-- Rain Particle System Layer -->
+<div class="absolute inset-0 pointer-events-none" id="rain-container"></div>
+</div>
+<!-- Top App Bar & HUD -->
+<header class="fixed top-0 left-0 right-0 z-50 flex flex-col gap-2 p-margin-mobile">
+<div class="flex justify-between items-center w-full">
+<!-- Brand & Weather -->
+<div class="flex items-center gap-3">
+<div class="flex flex-col">
+<h1 class="font-pixel-display text-pixel-display text-dusk-amber leading-none">Weatherling</h1>
+<div class="flex items-center gap-1 mt-1 px-2 py-0.5 bg-surface-container-high/60 backdrop-blur-md rounded-lg border border-outline-variant/30">
+<span class="material-symbols-outlined text-horizon-glow text-[18px]">cloudy_snowing</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Rainy, 18°C</span>
+</div>
+</div>
+</div>
+<!-- Currency/Meta -->
+<button class="bg-surface-container-high/80 px-4 py-2 rounded-xl flex items-center gap-2 border-b-4 border-deep-plum active:translate-y-1 active:border-b-0 transition-all">
+<span class="material-symbols-outlined text-tertiary">monetization_on</span>
+<span class="font-label-md text-label-md text-on-surface">1,240</span>
+</button>
+</div>
+<!-- Status HUD Bars -->
+<div class="grid grid-cols-3 gap-3 mt-4">
+<!-- Hunger -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center px-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Besin</span>
+<span class="font-label-sm text-label-sm text-status-hunger">80%</span>
+</div>
+<div class="h-3 bg-deep-plum rounded-full border border-outline-variant relative overflow-hidden">
+<div class="absolute inset-y-0 left-0 bg-status-hunger w-[80%] rounded-full bar-shine"></div>
+</div>
+</div>
+<!-- Energy -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center px-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Enerji</span>
+<span class="font-label-sm text-label-sm text-status-energy">60%</span>
+</div>
+<div class="h-3 bg-deep-plum rounded-full border border-outline-variant relative overflow-hidden">
+<div class="absolute inset-y-0 left-0 bg-status-energy w-[60%] rounded-full bar-shine"></div>
+</div>
+</div>
+<!-- Happiness -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center px-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mutluluk</span>
+<span class="font-label-sm text-label-sm text-status-love">95%</span>
+</div>
+<div class="h-3 bg-deep-plum rounded-full border border-outline-variant relative overflow-hidden">
+<div class="absolute inset-y-0 left-0 bg-status-love w-[95%] rounded-full bar-shine"></div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area: The Creature Canvas -->
+<main class="relative flex flex-col items-center justify-center h-full pt-32 pb-40 z-10">
+<!-- Speech Bubble -->
+<div class="relative mb-8 transform -translate-y-4">
+<div class="pixel-border-premium px-6 py-3 rounded-2xl relative">
+<p class="font-body-md text-body-md text-on-surface text-center">Yağmuru izlemek çok huzurlu...</p>
+<!-- Bubble Tail -->
+<div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-4 h-4 bg-surface-container border-r-4 border-b-4 border-dusk-amber rotate-45"></div>
+</div>
+</div>
+<!-- The Creature: Filiz -->
+<div class="relative group cursor-pointer active:scale-95 transition-transform duration-150">
+<!-- Puddle & Reflection Shadow -->
+<div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-32 h-8 bg-black/40 rounded-[100%] blur-sm group-hover:scale-110 transition-transform"></div>
+<div class="absolute -bottom-4 left-1/2 -translate-x-1/2 w-28 h-6 bg-horizon-glow/20 rounded-[100%] animate-pulse"></div>
+<!-- Filiz Sprite Container -->
+<div class="relative w-48 h-48 animate-breathe">
+<img class="w-full h-full object-contain" data-alt="A cute, high-detail pixel art creature named Filiz in its sprout stage. It resembles a small, round plant-like animal with big glowing eyes and a tiny sprout on its head. It is sitting contentedly on the grass. The style is professional 16-bit JRPG art with soft anti-aliased edges and vibrant colors, perfectly matching the dusk forest aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR1b_BHO4LIWIeZ1rnuWBibineRg7Dg11fVswMFC03yemi4oP_VnPF8iB955wqZaIQvONh9TKLp5_8Fgx9JemHG2sgR5bTF8CT3NL5McQWIxSOg5WIWAD5oXqV6dtrkhARvkISoRm_1tpxVTYVuKY2heYTlmsiKAmGYoBggO9r4fAX_4IMkVqpTEQ38am4qAC9WFMeabTxDS0a_cPxSxs_OeOi4ktcGtks3j9nzrTQqWUr_g7_qPokK7-OHHgtp2lDNfjFkYO2LlU"/>
+</div>
+</div>
+</main>
+<!-- Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-50">
+<div class="bg-surface-container border-t-4 border-primary-container p-4 pb-safe shadow-lg shadow-primary/20 rounded-t-full">
+<div class="flex justify-around items-center max-w-lg mx-auto">
+<!-- Besle (Feed) -->
+<button class="pixel-button-chunky bg-secondary-container text-on-secondary-container w-16 h-16 rounded-xl flex flex-col items-center justify-center p-2 border-b-2 border-r-2 border-on-secondary-container">
+<span class="material-symbols-outlined text-[28px]">restaurant</span>
+<span class="font-label-sm text-[10px] mt-1">Besle</span>
+</button>
+<!-- Oyna (Play) -->
+<button class="pixel-button-chunky bg-surface-container-high text-on-surface-variant w-16 h-16 rounded-xl flex flex-col items-center justify-center p-2 opacity-80 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[28px]">sports_esports</span>
+<span class="font-label-sm text-[10px] mt-1">Oyna</span>
+</button>
+<!-- Center Evolution/Home Indicator -->
+<div class="relative -top-6">
+<div class="bg-primary-container p-4 rounded-full border-4 border-surface shadow-2xl scale-125 animate-bounce">
+<span class="material-symbols-outlined text-on-primary-container text-[32px]">auto_fix_high</span>
+</div>
+</div>
+<!-- Yetenek (Skill) -->
+<button class="pixel-button-chunky bg-surface-container-high text-on-surface-variant w-16 h-16 rounded-xl flex flex-col items-center justify-center p-2 opacity-80 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[28px]">bolt</span>
+<span class="font-label-sm text-[10px] mt-1">Yetenek</span>
+</button>
+<!-- Mağaza (Shop) -->
+<button class="pixel-button-chunky bg-surface-container-high text-on-surface-variant w-16 h-16 rounded-xl flex flex-col items-center justify-center p-2 opacity-80 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[28px]">shopping_bag</span>
+<span class="font-label-sm text-[10px] mt-1">Mağaza</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Interactive Script for Weather & Micro-interactions -->
+<script>
+        // Rain Particle Generation
+        const rainContainer = document.getElementById('rain-container');
+        const rainCount = 60;
+
+        function createRain() {
+            for (let i = 0; i < rainCount; i++) {
+                const drop = document.createElement('div');
+                drop.className = 'rain-drop';
+                drop.style.left = Math.random() * 100 + 'vw';
+                drop.style.animationDuration = (Math.random() * 0.5 + 0.8) + 's';
+                drop.style.animationDelay = Math.random() * 2 + 's';
+                drop.style.opacity = Math.random() * 0.4 + 0.2;
+                rainContainer.appendChild(drop);
+            }
+        }
+
+        // Tap Ripples on Puddle Simulation
+        document.addEventListener('click', (e) => {
+            const ripple = document.createElement('div');
+            ripple.className = 'absolute border-2 border-horizon-glow/30 rounded-full animate-ping pointer-events-none';
+            ripple.style.width = '40px';
+            ripple.style.height = '10px';
+            ripple.style.left = (e.clientX - 20) + 'px';
+            ripple.style.top = (e.clientY - 5) + 'px';
+            document.body.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 1000);
+        });
+
+        // Initialize
+        createRain();
+
+        // Small interaction: Feed button makes Filiz jump
+        const feedBtn = document.querySelector('button:has(span:contains("Besle"))');
+        const creature = document.querySelector('.animate-breathe');
+        
+        // Note: Generic selector fix for the specific demo
+        document.querySelectorAll('.pixel-button-chunky').forEach(btn => {
+            btn.addEventListener('click', () => {
+                creature.style.animation = 'none';
+                void creature.offsetWidth; // Trigger reflow
+                creature.style.animation = 'breathe 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1';
+                setTimeout(() => {
+                    creature.style.animation = 'breathe 3s ease-in-out infinite';
+                }, 500);
+            });
+        });
+    </script>
+</body></html>

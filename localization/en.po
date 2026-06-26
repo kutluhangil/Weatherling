@@ -523,3 +523,56 @@ msgstr "The wind tossed everything around 🍃"
 
 msgid "JOURNAL_WINDY_2"
 msgstr "I tumbled about in the wind."
+
+# --- Navigation / interaction (Pixel-Prime) ---
+msgid "NAV_HOME"
+msgstr "Home"
+
+msgid "NAV_PLAY"
+msgstr "Play"
+
+msgid "INTERACT_TITLE"
+msgstr "Interact"
+
+# --- Minigames ---
+msgid "MG_TITLE"
+msgstr "Play"
+
+msgid "MG_RAIN"
+msgstr "Weather Catcher"
+
+msgid "MG_RAIN_DESC"
+msgstr "Catch the falling drops!"
+
+msgid "MG_STAR"
+msgstr "Star Connect"
+
+msgid "MG_STAR_DESC"
+msgstr "Find the sky patterns."
+
+msgid "MG_RHYTHM"
+msgstr "Rhythm Forest"
+
+msgid "MG_RHYTHM_DESC"
+msgstr "Jump to the beat!"
+
+msgid "MG_PLAY"
+msgstr "PLAY"
+
+msgid "MG_LOCKED"
+msgstr "Soon"
+
+msgid "MG_HIGH"
+msgstr "Best"
+
+msgid "MG_SCORE"
+msgstr "Score"
+
+msgid "MG_DONE"
+msgstr "Done!"
+
+msgid "MG_ENERGY_LOW"
+msgstr "Too tired... needs rest first."
+
+msgid "SKILL_ROOT"
+msgstr "Core Bond"

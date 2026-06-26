@@ -96,6 +96,18 @@ func _on_tick() -> void:
 
 # --- Bakım eylemleri (Plan §6.4) -----------------------------------
 
+## Mini-oyun enerji harcaması. Yeterli enerji yoksa false (oynatma — ama CEZA yok,
+## yalnızca "dinlenmeli"). 0'a inse de ölüm yok. (Plan §6.2, cozy)
+func spend_energy(amount: float) -> bool:
+	if _state == null:
+		return false
+	if _state.get_need("energy") < amount:
+		return false
+	_state.set_need("energy", _state.get_need("energy") - amount)
+	EventBus.need_changed.emit("energy", _state.get_need("energy"))
+	return true
+
+
 func apply_care(kind: String, amount: float = 25.0) -> void:
 	if _state == null:
 		return

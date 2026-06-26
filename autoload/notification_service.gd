@@ -6,7 +6,6 @@ extends Node
 const CATEGORIES := {
 	"needs": "notify/needs",     # "[İsim] acıktı"
 	"weather": "notify/weather", # "Senin orada yağmur başladı"
-	"faith": "notify/faith",     # vakit hatırlatması
 	"daily": "notify/daily",     # nazik günlük check-in
 }
 const PERMISSION := "android.permission.POST_NOTIFICATIONS"

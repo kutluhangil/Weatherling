@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Weatherling - Play Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --pixel-scale: 4px;
+        }
+
+        body {
+            background-color: #1d0c24; /* surface-dim */
+            color: #f6d9fa; /* on-surface */
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .pixel-border {
+            border: 4px solid transparent;
+            border-image-source: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 0H8V4H12V8H8V12H4V8H0V4H4V0Z' fill='%23E87C3E'/%3E%3C/svg%3E");
+            border-image-slice: 4;
+            border-image-repeat: stretch;
+        }
+
+        .nine-patch-panel {
+            background: #1A0F1F; /* deep-plum */
+            border: 4px solid #E87C3E; /* dusk-amber */
+            box-shadow: inset -4px -4px 0px 0px rgba(0,0,0,0.5), inset 4px 4px 0px 0px rgba(255,255,255,0.1);
+        }
+
+        .button-press {
+            transition: transform 0.1s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+        }
+
+        .button-press:active {
+            transform: translateY(2px) scale(0.98);
+        }
+
+        .energy-shine {
+            background: linear-gradient(to bottom, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 40%);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "horizon-glow": "#FFC078",
+                        "surface": "#1d0c24",
+                        "status-love": "#F72585",
+                        "tertiary-fixed": "#ffdf9b",
+                        "on-tertiary-container": "#5a4300",
+                        "surface-container-low": "#26152c",
+                        "secondary-fixed": "#f1dbff",
+                        "on-secondary-container": "#d4a5ff",
+                        "tertiary": "#f8ca60",
+                        "on-secondary": "#480e76",
+                        "inverse-surface": "#f6d9fa",
+                        "inverse-on-surface": "#3c2942",
+                        "on-surface-variant": "#dac2b4",
+                        "dusk-amber": "#E87C3E",
+                        "tertiary-fixed-dim": "#edc157",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#f6d9fa",
+                        "inverse-primary": "#95490d",
+                        "on-primary-container": "#743500",
+                        "surface-tint": "#ffb68a",
+                        "error": "#ffb4ab",
+                        "error-container": "#93000a",
+                        "twilight-indigo": "#3B2657",
+                        "deep-plum": "#1A0F1F",
+                        "status-hunger": "#FF4D6D",
+                        "secondary-container": "#622f91",
+                        "surface-container-high": "#36233c",
+                        "on-tertiary": "#3f2e00",
+                        "on-error": "#690005",
+                        "primary": "#ffc4a1",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "tertiary-container": "#daaf48",
+                        "on-secondary-fixed": "#2d0050",
+                        "on-primary": "#522300",
+                        "on-primary-fixed-variant": "#743500",
+                        "primary-container": "#ff9d5c",
+                        "background": "#1d0c24",
+                        "secondary": "#deb7ff",
+                        "outline-variant": "#544339",
+                        "on-primary-fixed": "#321300",
+                        "surface-bright": "#46324c",
+                        "surface-variant": "#412e47",
+                        "status-energy": "#4CC9F0",
+                        "on-secondary-fixed-variant": "#602c8e",
+                        "surface-container-lowest": "#18071e",
+                        "primary-fixed-dim": "#ffb68a",
+                        "surface-dim": "#1d0c24",
+                        "on-tertiary-fixed": "#251a00",
+                        "outline": "#a28c80",
+                        "primary-fixed": "#ffdbc8",
+                        "secondary-fixed-dim": "#deb7ff",
+                        "surface-container-highest": "#412e47",
+                        "surface-container": "#2b1931",
+                        "on-surface": "#f6d9fa"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "2px",
+                        "lg": "4px",
+                        "xl": "8px",
+                        "full": "12px"
+                    },
+                    "spacing": {
+                        "touch-target-min": "48px",
+                        "margin-desktop": "32px",
+                        "gutter": "16px",
+                        "pixel-unit": "4px",
+                        "margin-mobile": "20px",
+                        "container-padding": "12px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["JetBrains Mono"],
+                        "pixel-display": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "label-md": ["JetBrains Mono"],
+                        "body-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "headline-lg-mobile": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "pixel-display": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "400" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md select-none">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-deep-plum/80 backdrop-blur-sm px-margin-mobile h-touch-target-min flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-horizon-glow" data-icon="cloudy_snowing">cloudy_snowing</span>
+<h1 class="font-pixel-display text-pixel-display text-dusk-amber tracking-tight">Weatherling</h1>
+</div>
+<div class="bg-surface-container-high px-3 py-1 rounded-full flex items-center gap-1 border border-primary/20">
+<span class="material-symbols-outlined text-horizon-glow text-[18px] filled-icon">stars</span>
+<span class="font-label-md text-label-md text-horizon-glow">1,240</span>
+</div>
+</header>
+<main class="pt-24 pb-32 px-margin-mobile max-w-lg mx-auto space-y-8">
+<!-- Energy HUD -->
+<section class="nine-patch-panel p-4 rounded-xl">
+<div class="flex justify-between items-center mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-status-energy filled-icon" data-icon="bolt">bolt</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Enerji Seviyesi</h2>
+</div>
+<span class="font-label-md text-label-md text-status-energy">85 / 100</span>
+</div>
+<div class="h-6 w-full bg-surface-container-lowest rounded-full overflow-hidden relative border-2 border-surface-container-high">
+<div class="h-full bg-status-energy w-[85%] relative transition-all duration-500" id="energy-bar">
+<div class="energy-shine absolute inset-0"></div>
+</div>
+</div>
+<p class="mt-3 font-label-sm text-label-sm text-on-surface-variant italic">Oyun oynamak enerji tüketir. Weatherling'in dinlenmeye ihtiyacı olabilir!</p>
+</section>
+<!-- Activity Grid -->
+<div class="grid grid-cols-1 gap-6">
+<!-- Game Card 1: Hava Avcısı -->
+<div class="nine-patch-panel p-pixel-unit overflow-hidden group cursor-pointer button-press">
+<div class="bg-deep-plum p-1 flex">
+<div class="w-32 h-32 bg-surface-container relative overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all" data-alt="A premium 16-bit pixel art illustration of a cute creature catching falling glowing raindrops and snowflakes with a wooden net. The background features a misty purple forest with warm amber light filtering through pixelated leaves. The style is cozy, vibrant, and highly detailed with a nostalgic JRPG aesthetic using deep plums and golden oranges." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3pDlgIPdE2ZDT9P-Tva5lD6kxU1l-GQKDl4KughofkzabAJzHJiYFa-cjaxtDfVfXAaNEQiU1vNUNBBOZX7LvU0Nw4KgYZvjHcavM_M4YBcAWqrD9NDs3qtUd0TCu4xESupRR7-FmSvvemdIN5oVgPHUOdJvazXl7o-CQuiu9g0LqWUe509Dl992ROSB0c7apVQyCrsdNW_B-XDbLUTpbAeZXkM3n9yJCCerirDm0WxNtkbmwa6gKiSjPh7ojkmfQ4lJ9G4octNQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-deep-plum/80 to-transparent"></div>
+</div>
+<div class="p-4 flex flex-col justify-between flex-grow">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-headline-md text-horizon-glow">Hava Avcısı</h3>
+<span class="bg-status-energy/20 text-status-energy px-2 py-0.5 rounded font-label-sm text-label-sm">-15⚡</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-[14px] mt-1">Düşen hava tanelerini topla!</p>
+</div>
+<div class="flex justify-between items-center mt-2">
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] uppercase text-on-tertiary-container opacity-60">En Yüksek</span>
+<span class="font-label-md text-tertiary">2,450 Puan</span>
+</div>
+<button class="bg-primary-container text-on-primary-container px-4 py-1 font-label-md rounded shadow-[2px_2px_0px_#743500] hover:translate-y-[-1px] active:translate-y-[1px] active:shadow-none transition-all">OYNA</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Game Card 2: Yıldız Birleştirme -->
+<div class="nine-patch-panel p-pixel-unit overflow-hidden group cursor-pointer button-press">
+<div class="bg-deep-plum p-1 flex">
+<div class="w-32 h-32 bg-surface-container relative overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all" data-alt="Intricate pixel art showing a night sky with glowing blue constellations and a small creature drawing lines between stars with a magical wand. The scene is lit by soft blue and pink neon glows against a dark indigo cosmic background. Premium retro game aesthetic with smooth gradients and twinkling star particles, evoking a sense of wonder and tranquility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2LmijpPihjsKsMstfrG60h96NSJu32pSuKg84MigwmroV-yImbmcKTcTxydRZbddvrGtSLKk-s3ftRQ0k3vb9PvzIlnqBgdZqmGiowlgZxFNttandCFEvqBPDrTZ9G1lvzVHXExGyiLx9v0a9pd9dMWLVa7DLDvqV2T9WQlxELEW9Gsok78u6E5y0xKFvm8LELa6wrA9fpJCEWxRs5gVHk97w_SFOeDkUEs-x8VRzgCgD92LCwOFZIO7_So9LqneIxueJciHv_MA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-deep-plum/80 to-transparent"></div>
+</div>
+<div class="p-4 flex flex-col justify-between flex-grow">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-headline-md text-horizon-glow">Yıldız Birleştirme</h3>
+<span class="bg-status-energy/20 text-status-energy px-2 py-0.5 rounded font-label-sm text-label-sm">-10⚡</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-[14px] mt-1">Gökyüzündeki gizli desenleri bul.</p>
+</div>
+<div class="flex justify-between items-center mt-2">
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] uppercase text-on-tertiary-container opacity-60">Ödül</span>
+<span class="font-label-md text-tertiary">+50 Yıldız</span>
+</div>
+<button class="bg-primary-container text-on-primary-container px-4 py-1 font-label-md rounded shadow-[2px_2px_0px_#743500] hover:translate-y-[-1px] active:translate-y-[1px] active:shadow-none transition-all">OYNA</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Game Card 3: Ritim Ormanı -->
+<div class="nine-patch-panel p-pixel-unit overflow-hidden group cursor-pointer button-press">
+<div class="bg-deep-plum p-1 flex">
+<div class="w-32 h-32 bg-surface-container relative overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all" data-alt="A lush pixel art jungle at sunset with glowing tropical flowers that pulse with light. A small creature is dancing on a giant mossy log in front of a waterfall. The art style is rich and textured, featuring high-fidelity 16-bit aesthetics with deep purples, vibrant magentas, and golden highlights. Atmospheric lighting and floating dust motes create a magical feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_EAur3RPB8wgV52GE4VgnTsoO06ELkEAT5JiuMOFMO0FVUggOsUAq6vgQxkqZWH7PomO9HNWq83DgrQK7cT9O5DyIXMctdViW985d6YeYQmRyGnD8bCzMof7amOdTFjT027hoa5hUseNyOGpoG3BcyJOUi_wNiRBonKaqWGz0OndbhSobKNuj5Eql32QshxkyAKNTOsGeNx-jMQ72zYLlFDHWNqp4f7sLuXn2Yy8NS3qBEPUbmBTj4UoZ-akKa1_ZQKGXQn4XTNc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-deep-plum/80 to-transparent"></div>
+</div>
+<div class="p-4 flex flex-col justify-between flex-grow">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-headline-md text-horizon-glow">Ritim Ormanı</h3>
+<span class="bg-status-energy/20 text-status-energy px-2 py-0.5 rounded font-label-sm text-label-sm">-20⚡</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-[14px] mt-1">Müziğin ritmine göre zıpla!</p>
+</div>
+<div class="flex justify-between items-center mt-2">
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] uppercase text-on-tertiary-container opacity-60">Seviye</span>
+<span class="font-label-md text-tertiary">Pro: 12 LVL</span>
+</div>
+<button class="bg-primary-container text-on-primary-container px-4 py-1 font-label-md rounded shadow-[2px_2px_0px_#743500] hover:translate-y-[-1px] active:translate-y-[1px] active:shadow-none transition-all">OYNA</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Atmospheric Footer Card -->
+<div class="relative w-full h-32 rounded-xl overflow-hidden mt-8">
+
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
+<span class="material-symbols-outlined text-horizon-glow mb-1 float-animation text-[32px]" data-icon="auto_fix_high">auto_fix_high</span>
+<p class="font-label-md text-label-md text-white drop-shadow-md">Yeni oyunlar her mevsim değişiminde açılır!</p>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-gutter py-2 pb-safe bg-surface-container shadow-lg shadow-primary/20 border-t-4 border-primary-container">
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-pixel-unit opacity-80 hover:bg-surface-variant transition-all">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<!-- ACTIVE: Play -->
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl p-pixel-unit scale-110 border-b-2 border-r-2 border-on-secondary-container translate-y-0.5">
+<span class="material-symbols-outlined filled-icon" data-icon="sports_esports">sports_esports</span>
+<span class="font-label-sm text-label-sm">Play</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-pixel-unit opacity-80 hover:bg-surface-variant transition-all">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-label-sm text-label-sm">Shop</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-pixel-unit opacity-80 hover:bg-surface-variant transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</button>
+</nav>
+<!-- Floating Micro-interaction Script -->
+<script>
+        document.querySelectorAll('.button-press').forEach(card => {
+            card.addEventListener('click', () => {
+                // Subtle juice effect
+                const burst = document.createElement('div');
+                burst.className = 'absolute pointer-events-none w-2 h-2 bg-horizon-glow rounded-full';
+                burst.style.left = '50%';
+                burst.style.top = '50%';
+                card.appendChild(burst);
+                
+                burst.animate([
+                    { transform: 'scale(1)', opacity: 1 },
+                    { transform: 'scale(15)', opacity: 0 }
+                ], {
+                    duration: 400,
+                    easing: 'ease-out'
+                }).onfinish = () => burst.remove();
+            });
+        });
+
+        // Simulate energy drain (for visual demo)
+        const energyBar = document.getElementById('energy-bar');
+        let energyValue = 85;
+        setInterval(() => {
+            if (Math.random() > 0.8) {
+                energyValue = Math.max(0, energyValue - 1);
+                energyBar.style.width = energyValue + '%';
+            }
+        }, 3000);
+    </script>
+</body></html>

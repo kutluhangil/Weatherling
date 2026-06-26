@@ -37,7 +37,6 @@ func _build() -> void:
 	_header("SET_NOTIFS")
 	_notif_check("needs", "NOTIF_CAT_NEEDS")
 	_notif_check("weather", "NOTIF_CAT_WEATHER")
-	_notif_check("faith", "NOTIF_CAT_FAITH")
 	_notif_check("daily", "NOTIF_CAT_DAILY")
 
 	_header("SET_GENERAL")

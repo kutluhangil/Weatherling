@@ -48,18 +48,26 @@ func current_state() -> CreatureState:
 	return state
 
 
+## Mini-oyun/etkinlik ödülü olarak bond XP ver (bakım dışı kaynak). (Plan §6.2)
+func grant_xp(amount: int) -> void:
+	if state == null or amount <= 0:
+		return
+	state.bond_xp += amount
+	EventBus.bond_xp_gained.emit(amount)
+
+
 ## Onboarding (Faz 5) bunu çağırır → durum oluştur, yay VE kaydet.
-func new_game(creature_name: String = "Weatherling", age: int = 0, faith: String = "none") -> void:
-	state = _build_state(creature_name, age, faith)
+func new_game(creature_name: String = "Weatherling", age: int = 0) -> void:
+	state = _build_state(creature_name, age)
 	EventBus.state_loaded.emit(state)
 	save_now()
 
 
-func _build_state(creature_name: String, age: int, faith: String) -> CreatureState:
+func _build_state(creature_name: String, age: int) -> CreatureState:
 	var s := CreatureState.new()
 	s.creature_name = creature_name
 	s.user_age = age
-	s.faith = faith
+	s.faith = "none"  # alan save geri-uyumu için durur (inanç sistemi kaldırıldı)
 	s.life_stage = LifeStageService.stage_for_age(age)
 	s.birth_unix = int(Time.get_unix_time_from_system())
 	s.last_seen_unix = s.birth_unix
@@ -80,7 +88,7 @@ func _load_or_new() -> void:
 		EventBus.state_loaded.emit(state)
 	else:
 		# Kayıt yok: bellekte geçici default (KAYDETME) → Boot onboarding'e yönlendirir.
-		state = _build_state("Weatherling", 0, "none")
+		state = _build_state("Weatherling", 0)
 		EventBus.state_loaded.emit(state)
 
 

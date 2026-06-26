@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Weatherling Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Hanken+Grotesk:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#1d0c24",
+                    "on-tertiary-fixed-variant": "#5b4300",
+                    "surface-container-lowest": "#18071e",
+                    "error": "#ffb4ab",
+                    "surface": "#1d0c24",
+                    "on-primary-fixed-variant": "#743500",
+                    "on-secondary-container": "#d4a5ff",
+                    "tertiary-container": "#daaf48",
+                    "secondary-container": "#622f91",
+                    "surface-container-low": "#26152c",
+                    "dusk-amber": "#E87C3E",
+                    "deep-plum": "#1A0F1F",
+                    "on-secondary-fixed-variant": "#602c8e",
+                    "background": "#1d0c24",
+                    "secondary-fixed-dim": "#deb7ff",
+                    "on-secondary-fixed": "#2d0050",
+                    "surface-variant": "#412e47",
+                    "on-primary-fixed": "#321300",
+                    "inverse-on-surface": "#3c2942",
+                    "on-background": "#f6d9fa",
+                    "surface-container-highest": "#412e47",
+                    "horizon-glow": "#FFC078",
+                    "primary-fixed": "#ffdbc8",
+                    "tertiary-fixed-dim": "#edc157",
+                    "surface-tint": "#ffb68a",
+                    "status-energy": "#4CC9F0",
+                    "status-love": "#F72585",
+                    "on-surface-variant": "#dac2b4",
+                    "on-tertiary-fixed": "#251a00",
+                    "inverse-surface": "#f6d9fa",
+                    "tertiary-fixed": "#ffdf9b",
+                    "outline-variant": "#544339",
+                    "primary-fixed-dim": "#ffb68a",
+                    "on-primary-container": "#743500",
+                    "on-tertiary-container": "#5a4300",
+                    "secondary": "#deb7ff",
+                    "primary-container": "#ff9d5c",
+                    "on-error-container": "#ffdad6",
+                    "twilight-indigo": "#3B2657",
+                    "status-hunger": "#FF4D6D",
+                    "on-secondary": "#480e76",
+                    "outline": "#a28c80",
+                    "inverse-primary": "#95490d",
+                    "tertiary": "#f8ca60",
+                    "on-surface": "#f6d9fa",
+                    "on-tertiary": "#3f2e00",
+                    "secondary-fixed": "#f1dbff",
+                    "surface-bright": "#46324c",
+                    "on-primary": "#522300",
+                    "primary": "#ffc4a1",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "surface-container": "#2b1931",
+                    "surface-container-high": "#36233c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "pixel-unit": "4px",
+                    "gutter": "16px",
+                    "margin-desktop": "32px",
+                    "margin-mobile": "20px",
+                    "container-padding": "12px",
+                    "touch-target-min": "48px"
+            },
+            "fontFamily": {
+                    "body-md": ["Hanken Grotesk"],
+                    "label-sm": ["JetBrains Mono"],
+                    "label-md": ["JetBrains Mono"],
+                    "headline-lg-mobile": ["Space Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "pixel-display": ["Space Grotesk"],
+                    "headline-md": ["Space Grotesk"],
+                    "headline-lg": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
+                    "pixel-display": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #1d0c24;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        .pixel-bg-stars {
+            background-image: radial-gradient(white, rgba(255,255,255,0) 2px);
+            background-size: 100px 100px;
+            background-position: 0 0, 50px 50px;
+            animation: stars-drift 100s linear infinite;
+        }
+
+        @keyframes stars-drift {
+            from { background-position: 0 0; }
+            to { background-position: 1000px 1000px; }
+        }
+
+        .pixel-border-outer {
+            box-shadow: 
+                0 -4px 0 0 #E87C3E,
+                0 4px 0 0 #E87C3E,
+                -4px 0 0 0 #E87C3E,
+                4px 0 0 0 #E87C3E;
+        }
+
+        .pixel-border-inner {
+            box-shadow: 
+                inset 0 -2px 0 0 rgba(0,0,0,0.3),
+                inset 0 2px 0 0 rgba(255,255,255,0.2);
+        }
+
+        .retro-button {
+            position: relative;
+            transition: all 0.1s ease-in-out;
+            box-shadow: 
+                0 6px 0 0 #743500,
+                0 0 15px rgba(232, 124, 62, 0.4);
+        }
+
+        .retro-button:active {
+            transform: translateY(4px);
+            box-shadow: 
+                0 2px 0 0 #743500,
+                0 0 5px rgba(232, 124, 62, 0.2);
+        }
+
+        .egg-glow {
+            filter: drop-shadow(0 0 20px rgba(255, 192, 120, 0.6));
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        .squash-stretch {
+            animation: idle-breathe 4s ease-in-out infinite;
+        }
+
+        @keyframes idle-breathe {
+            0%, 100% { transform: scale(1, 1); }
+            50% { transform: scale(1.05, 0.95); }
+        }
+
+        .input-carved {
+            box-shadow: inset 4px 4px 0px rgba(0,0,0,0.5);
+            background: rgba(26, 15, 31, 0.8);
+        }
+
+        .particle {
+            position: absolute;
+            background: #FFC078;
+            pointer-events: none;
+            opacity: 0;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-background flex flex-col items-center justify-center min-h-screen relative">
+<!-- Atmospheric Background -->
+<div class="fixed inset-0 z-0 bg-gradient-to-b from-deep-plum via-surface-dim to-surface-container-lowest overflow-hidden">
+<div class="absolute inset-0 pixel-bg-stars opacity-30"></div>
+<div class="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-horizon-glow/5 to-transparent"></div>
+</div>
+<!-- Main Content Canvas -->
+<main class="relative z-10 w-full max-w-md px-margin-mobile flex flex-col items-center gap-8 md:gap-12 text-center">
+<!-- Header Branding (Hidden on Onboarding usually, but here as a clean anchor) -->
+<header class="mb-4">
+<h1 class="font-pixel-display text-pixel-display text-horizon-glow tracking-widest uppercase">
+                Weatherling
+            </h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-60">
+                Yeni bir dostluk başlıyor
+            </p>
+</header>
+<!-- The Ritual: The Hatching Egg & Filiz -->
+<div class="relative w-64 h-64 flex items-center justify-center group">
+<!-- Aura/Glow Effect -->
+<div class="absolute inset-0 bg-horizon-glow/20 rounded-full blur-3xl egg-glow"></div>
+<!-- The Pixel Egg & Sprout -->
+<div class="relative z-20 transition-transform duration-700 hover:scale-110 squash-stretch">
+<!-- Sprout (Filiz) Emerging -->
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 w-20 h-20 z-30">
+<img class="w-full h-full object-contain drop-shadow-[0_0_10px_#f8ca60]" data-alt="A premium 16-bit JRPG style pixel art sprout creature with two tiny green leaves and expressive glowing eyes, emerging from a cracked glowing egg. The art style is lush and high-fidelity with soft hand-painted anti-aliasing and magical light particles. The colors are deep purples, vibrant greens, and sunset ambers, set against a dark atmospheric background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu7ChZ4q4IxWDMOcMwqwU36CWoOWzyL6QzdHin1xfXRn0UabKX2YieWi06Va1T7WjZmTQRX1VSTI6NlGm_bYhT0fehBr2-c9oyhis-BxDOmeS6XX2SZnyjRCWR3ieITplgnTxjpwiufVGripHyHUdiNgBybDTZnS43V72kPU9Buhls_fODIhVBBRKwxjwPVqDeCSwJ_Zn7fXfXnWsl9qIK6Z8AUnD6KG6C3K4oyiAXj0yCHQ0X412eD4TXQYNitaGNQmpddizuwZM"/>
+</div>
+<!-- Glowing Pixel Egg Shells -->
+<img class="w-48 h-48 object-contain" data-alt="A beautifully crafted pixel art egg, cracked open at the top, glowing with an inner golden light. The texture is smooth like polished porcelain with intricate 16-bit shading and highlighting. The egg is nested in a small cluster of magical pixelated dust motes and soft shadow layers. Premium retro gaming aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAftE-7l8os5zuEzI_bOKnn9zOJZoYgqwBEEYmxzy0sorG80shoBZ1FJSFn0uXXfQdRCigkopnah_mMeVmdu7VPAHyZzlxs8smDdX70t3aMqM8qzxv5IzqvJKrXSyw3w-i0kZLOiYKNr7My2I2RrSBwTBddGRRIiJYKVFqQ9nid5HvYzTpqQZilEXRVCkxBFW0G2aoIeVY5NjcM2nG6u3T2JjzVPkiKokcF31YG_cfsPpSPpPyuSgfpg_ufP_O7_38c9tfEiKTor6E"/>
+</div>
+</div>
+<!-- Transactional Form Area -->
+<div class="w-full space-y-8">
+<div class="space-y-4">
+<label class="block font-headline-md text-headline-md text-on-surface text-center" for="creature_name">
+                    Yaratığının adı ne olsun?
+                </label>
+<!-- Pixel Styled Input Field -->
+<div class="relative group mx-auto max-w-xs">
+<div class="absolute -inset-1 bg-gradient-to-r from-dusk-amber to-horizon-glow rounded-xl blur opacity-25 group-focus-within:opacity-75 transition duration-500"></div>
+<div class="relative flex items-center bg-surface-container border-4 border-dusk-amber p-1">
+<input class="w-full bg-transparent border-none focus:ring-0 text-horizon-glow font-label-md text-label-md px-4 py-3 placeholder:text-on-surface-variant/40 input-carved" id="creature_name" maxlength="12" placeholder="İsim girin..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Start Button (Retro Console Style) -->
+<div class="flex flex-col items-center gap-4">
+<button class="retro-button w-full max-w-xs py-4 px-8 bg-primary-container text-on-primary-container font-pixel-display text-pixel-display rounded-lg flex items-center justify-center gap-3 active:scale-95 transition-all" id="nextBtn">
+<span>BAŞLA</span>
+<span class="material-symbols-outlined text-3xl">play_arrow</span>
+</button>
+<p class="font-label-sm text-label-sm text-on-tertiary-container/60 italic">
+                    "Macera bir isimle başlar."
+                </p>
+</div>
+</div>
+</main>
+<!-- Footer Decoration -->
+<footer class="fixed bottom-margin-mobile left-0 w-full px-margin-mobile pointer-events-none">
+<div class="flex justify-between items-center opacity-30">
+<div class="h-1 w-24 bg-gradient-to-r from-transparent to-dusk-amber"></div>
+<div class="font-label-sm text-[10px] tracking-widest text-on-surface-variant">OS_VER: WEATHERLING_V1.0</div>
+<div class="h-1 w-24 bg-gradient-to-l from-transparent to-dusk-amber"></div>
+</div>
+</footer>
+<!-- Micro-interaction Particles Script -->
+<script>
+        const container = document.body;
+        const colors = ['#FFC078', '#E87C3E', '#F72585', '#4CC9F0'];
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            const size = Math.random() * 4 + 2;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            const startX = Math.random() * window.innerWidth;
+            const startY = window.innerHeight + 10;
+            
+            particle.style.left = `${startX}px`;
+            particle.style.top = `${startY}px`;
+            particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            container.appendChild(particle);
+            
+            const destinationX = startX + (Math.random() - 0.5) * 200;
+            const destinationY = -100;
+            const duration = Math.random() * 5000 + 5000;
+            
+            particle.animate([
+                { transform: `translate(0, 0)`, opacity: 0 },
+                { transform: `translate(${(destinationX - startX) * 0.5}px, -400px)`, opacity: 0.6 },
+                { transform: `translate(${destinationX - startX}px, ${destinationY - startY}px)`, opacity: 0 }
+            ], {
+                duration: duration,
+                easing: 'linear'
+            }).onfinish = () => particle.remove();
+        }
+
+        // Periodically create particles
+        setInterval(createParticle, 400);
+
+        // Interactive "Start" button sound simulation / visual feedback
+        const btn = document.getElementById('nextBtn');
+        btn.addEventListener('click', () => {
+            // Flash effect on click
+            const flash = document.createElement('div');
+            flash.className = 'fixed inset-0 bg-white z-[100] pointer-events-none opacity-0';
+            document.body.appendChild(flash);
+            flash.animate([
+                { opacity: 0.4 },
+                { opacity: 0 }
+            ], { duration: 300 }).onfinish = () => flash.remove();
+            
+            // Redirect simulation or further action could go here
+            console.log("Starting adventure with name:", document.getElementById('creature_name').value);
+        });
+    </script>
+</body></html>

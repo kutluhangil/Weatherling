@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Weatherling - Needs & Interaction</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&family=JetBrains+Mono:wght@100..900&family=Space+Grotesk:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#1d0c24",
+                    "on-tertiary-fixed-variant": "#5b4300",
+                    "surface-container-lowest": "#18071e",
+                    "error": "#ffb4ab",
+                    "surface": "#1d0c24",
+                    "on-primary-fixed-variant": "#743500",
+                    "on-secondary-container": "#d4a5ff",
+                    "tertiary-container": "#daaf48",
+                    "secondary-container": "#622f91",
+                    "surface-container-low": "#26152c",
+                    "dusk-amber": "#E87C3E",
+                    "deep-plum": "#1A0F1F",
+                    "on-secondary-fixed-variant": "#602c8e",
+                    "background": "#1d0c24",
+                    "secondary-fixed-dim": "#deb7ff",
+                    "on-secondary-fixed": "#2d0050",
+                    "surface-variant": "#412e47",
+                    "on-primary-fixed": "#321300",
+                    "inverse-on-surface": "#3c2942",
+                    "on-background": "#f6d9fa",
+                    "surface-container-highest": "#412e47",
+                    "horizon-glow": "#FFC078",
+                    "primary-fixed": "#ffdbc8",
+                    "tertiary-fixed-dim": "#edc157",
+                    "surface-tint": "#ffb68a",
+                    "status-energy": "#4CC9F0",
+                    "status-love": "#F72585",
+                    "on-surface-variant": "#dac2b4",
+                    "on-tertiary-fixed": "#251a00",
+                    "inverse-surface": "#f6d9fa",
+                    "tertiary-fixed": "#ffdf9b",
+                    "outline-variant": "#544339",
+                    "primary-fixed-dim": "#ffb68a",
+                    "on-primary-container": "#743500",
+                    "on-tertiary-container": "#5a4300",
+                    "secondary": "#deb7ff",
+                    "primary-container": "#ff9d5c",
+                    "on-error-container": "#ffdad6",
+                    "twilight-indigo": "#3B2657",
+                    "status-hunger": "#FF4D6D",
+                    "on-secondary": "#480e76",
+                    "outline": "#a28c80",
+                    "inverse-primary": "#95490d",
+                    "tertiary": "#f8ca60",
+                    "on-surface": "#f6d9fa",
+                    "on-tertiary": "#3f2e00",
+                    "secondary-fixed": "#f1dbff",
+                    "surface-bright": "#46324c",
+                    "on-primary": "#522300",
+                    "primary": "#ffc4a1",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "surface-container": "#2b1931",
+                    "surface-container-high": "#36233c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "pixel-unit": "4px",
+                    "gutter": "16px",
+                    "margin-desktop": "32px",
+                    "margin-mobile": "20px",
+                    "container-padding": "12px",
+                    "touch-target-min": "48px"
+            },
+            "fontFamily": {
+                    "body-md": ["Hanken Grotesk"],
+                    "label-sm": ["JetBrains Mono"],
+                    "label-md": ["JetBrains Mono"],
+                    "headline-lg-mobile": ["Space Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "pixel-display": ["Space Grotesk"],
+                    "headline-md": ["Space Grotesk"],
+                    "headline-lg": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
+                    "pixel-display": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .pixel-9-patch {
+            border: 4px solid #E87C3E;
+            box-shadow: 
+                inset 2px 2px 0px 0px rgba(255, 192, 120, 0.3),
+                inset -2px -2px 0px 0px rgba(0, 0, 0, 0.4);
+            image-rendering: pixelated;
+        }
+        
+        .pixel-card {
+            background-color: #2b1931;
+            position: relative;
+            transition: all 0.1s ease;
+        }
+        
+        .pixel-card:active {
+            transform: translateY(2px);
+            box-shadow: none;
+        }
+
+        .pixel-glow:hover {
+            box-shadow: 0 0 15px #FFC078;
+        }
+
+        .status-bar-shine {
+            background: linear-gradient(to bottom, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 40%);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-4px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-pixel-float {
+            animation: float 2s ease-in-out infinite;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* 9-patch border decorative corners */
+        .corner-decoration::before, .corner-decoration::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #E87C3E;
+        }
+        .corner-top-left::before { top: -4px; left: -4px; }
+        .corner-top-right::after { top: -4px; right: -4px; }
+
+        .blur-overlay {
+            backdrop-filter: blur(8px) brightness(0.6);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-dim text-on-surface font-body-md overflow-hidden h-screen select-none">
+<!-- Background: Blurrred Home Screen Environment -->
+<div class="fixed inset-0 z-0 blur-overlay">
+<div class="absolute inset-0 bg-[url('placeholder')] bg-cover bg-center opacity-40" data-alt="A lush pixel-art forest glade at sunset, featuring multi-layered parallax trees, soft purple and orange atmospheric lighting, and tiny floating fireflies. The style is premium 16-bit JRPG aesthetic with hand-painted textures and warm shadows. The environment is serene and magical, inviting a sense of companionship."></div>
+<!-- Centered Creature (Shadow/Silhouette) -->
+<div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-48 h-48 animate-pixel-float opacity-80 scale-110">
+<img class="w-full h-full object-contain" data-alt="A cute, chubby pixel-art cloud creature with small nubby horns and large expressive eyes. It is floating gently in a relaxed state. The color palette consists of soft blues and glowing ambers, with premium anti-aliased pixel edges and a subtle interior glow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc0WOZxAjBOXBs6GsxR_Eq6RgjoCiWgTmoMGG5NiJTfN0W0_P9MVjiyP2ng1jMsxbuZ1FZkeekrscSy_ilPGVG5aqP-STRV4QRLqG--NgAP6Y2ioy8wvmW4L98zK0nNFfWQodq2l-PBOc4WFyG1s9NJ6YJHXZeIvDa5KjH2UeXBrl0x5eV9GutEnh91kNbXlMecjbMcuNpyMC4aASJ1cMPKbqnnFlV1polQP-vDULcltgOOJaFizslm-_NOZCczkY8vfPIBQPVUyE"/>
+</div>
+</div>
+<!-- Top Status Bar (HUD) -->
+<header class="fixed top-0 left-0 right-0 p-margin-mobile z-10 flex flex-col gap-2">
+<div class="flex justify-between items-center w-full">
+<div class="flex flex-col">
+<span class="font-pixel-display text-pixel-display text-horizon-glow">Sunny Paws</span>
+<span class="font-label-sm text-label-sm text-tertiary-fixed opacity-80 uppercase tracking-widest">LVL 12 • JUVENILE</span>
+</div>
+<div class="bg-deep-plum/80 px-3 py-1 rounded-lg border border-outline-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-horizon-glow text-base">cloudy_snowing</span>
+<span class="font-label-md text-label-md">1,240</span>
+</div>
+</div>
+<!-- Status Bars Cluster -->
+<div class="flex gap-4 w-full">
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<span class="font-label-sm text-[10px] text-on-surface-variant">HUNGER</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">80%</span>
+</div>
+<div class="h-2 bg-surface-container-highest rounded-full overflow-hidden relative">
+<div class="absolute top-0 left-0 h-full bg-status-hunger w-[80%] rounded-full shadow-[0_0_8px_rgba(255,77,109,0.5)]">
+<div class="status-bar-shine w-full h-full"></div>
+</div>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<span class="font-label-sm text-[10px] text-on-surface-variant">ENERGY</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">45%</span>
+</div>
+<div class="h-2 bg-surface-container-highest rounded-full overflow-hidden relative">
+<div class="absolute top-0 left-0 h-full bg-status-energy w-[45%] rounded-full shadow-[0_0_8px_rgba(76,201,240,0.5)]">
+<div class="status-bar-shine w-full h-full"></div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Modal Backdrop -->
+<div class="fixed inset-0 z-40 bg-black/20" onclick="window.history.back()"></div>
+<!-- Interactions Overlay Drawer -->
+<div class="fixed bottom-0 left-0 right-0 z-50 flex flex-col">
+<!-- Close Handle (Visual Only) -->
+<div class="w-16 h-1 bg-on-surface-variant/40 rounded-full mx-auto mb-4"></div>
+<!-- Main Panel -->
+<div class="pixel-9-patch bg-surface-container mx-2 mb-safe rounded-t-xl overflow-hidden">
+<div class="p-gutter">
+<!-- Header -->
+<div class="flex justify-between items-center mb-6 px-2">
+<div class="flex flex-col">
+<h2 class="font-headline-md text-headline-md text-on-surface">Interact</h2>
+<p class="font-body-md text-label-md text-on-surface-variant">What does Sunny Paws need?</p>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-high text-on-surface-variant border border-outline-variant active:scale-95 transition-transform">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Bento Grid of Actions -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Feed Action -->
+<div class="pixel-card pixel-9-patch p-4 group cursor-pointer active:scale-95 transition-transform" onclick="triggerJuice(this)">
+<div class="flex flex-col items-center gap-3">
+<div class="w-16 h-16 relative flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-status-hunger group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">apps</span>
+<div class="absolute -top-1 -right-1 bg-horizon-glow text-deep-plum px-2 py-0.5 rounded-full font-label-sm text-[10px] font-bold">+10 XP</div>
+</div>
+<span class="font-pixel-display text-label-md text-on-surface group-hover:text-horizon-glow">Feed</span>
+</div>
+</div>
+<!-- Play Action -->
+<div class="pixel-card pixel-9-patch p-4 group cursor-pointer active:scale-95 transition-transform" onclick="triggerJuice(this)">
+<div class="flex flex-col items-center gap-3">
+<div class="w-16 h-16 relative flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-status-love group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+<div class="absolute -top-1 -right-1 bg-horizon-glow text-deep-plum px-2 py-0.5 rounded-full font-label-sm text-[10px] font-bold">+25 XP</div>
+</div>
+<span class="font-pixel-display text-label-md text-on-surface group-hover:text-horizon-glow">Play</span>
+</div>
+</div>
+<!-- Sleep Action -->
+<div class="pixel-card pixel-9-patch p-4 group cursor-pointer active:scale-95 transition-transform" onclick="triggerJuice(this)">
+<div class="flex flex-col items-center gap-3">
+<div class="w-16 h-16 relative flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-status-energy group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">bedtime</span>
+<div class="absolute -top-1 -right-1 bg-horizon-glow text-deep-plum px-2 py-0.5 rounded-full font-label-sm text-[10px] font-bold">+5 XP</div>
+</div>
+<span class="font-pixel-display text-label-md text-on-surface group-hover:text-horizon-glow">Sleep</span>
+</div>
+</div>
+<!-- Clean Action -->
+<div class="pixel-card pixel-9-patch p-4 group cursor-pointer active:scale-95 transition-transform" onclick="triggerJuice(this)">
+<div class="flex flex-col items-center gap-3">
+<div class="w-16 h-16 relative flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-on-secondary-container group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">cleaning_services</span>
+<div class="absolute -top-1 -right-1 bg-horizon-glow text-deep-plum px-2 py-0.5 rounded-full font-label-sm text-[10px] font-bold">+15 XP</div>
+</div>
+<span class="font-pixel-display text-label-md text-on-surface group-hover:text-horizon-glow">Clean</span>
+</div>
+</div>
+</div>
+<!-- Footer Tip -->
+<div class="mt-8 mb-4 text-center">
+<p class="font-label-sm text-on-surface-variant text-[11px] uppercase tracking-tighter opacity-60">Interaction recharge in 02:45</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation Mock (Suppressed for transactional overlay logic, but showing the BottomNavBar styles as per Shared Components for context if needed in other views) -->
+<!-- Logic: Suppressed as this is a Task-Focused sub-page (Interaction Menu) -->
+<script>
+        function triggerJuice(element) {
+            // Visual squash/stretch micro-interaction
+            element.style.transition = 'transform 0.05s ease-out';
+            element.style.transform = 'scale(0.92) translateY(4px)';
+            
+            // Generate simple "particle" effect (using DOM for portability)
+            const particle = document.createElement('div');
+            particle.className = 'absolute inset-0 pointer-events-none rounded-xl border-2 border-horizon-glow opacity-0';
+            element.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.style.transition = 'all 0.4s ease-out';
+                particle.style.transform = 'scale(1.4)';
+                particle.style.opacity = '0';
+                element.style.transform = 'scale(1)';
+                
+                setTimeout(() => {
+                    particle.remove();
+                }, 400);
+            }, 50);
+        }
+
+        // Handle generic tap on background to close
+        document.body.addEventListener('click', (e) => {
+            if(e.target === document.body) {
+                // Placeholder for close action
+                console.log('Close overlay');
+            }
+        });
+    </script>
+</body></html>

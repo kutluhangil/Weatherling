@@ -14,7 +14,6 @@ const DEFAULTS := {
 	# bildirim kategorileri (Plan §14) — hepsi opt-in
 	"notify/needs": false,
 	"notify/weather": false,
-	"notify/faith": false,
 	"notify/daily": false,
 	# erişilebilirlik (Plan §10.4)
 	"a11y/reduced_motion": false,

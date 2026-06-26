@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/hud/interaction_drawer.gd" id="1_id"]
+
+[node name="InteractionDrawer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_id")
+
+[node name="Dim" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="Sheet" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -360.0
+offset_right = 200.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBox" type="VBoxContainer" parent="Sheet"]
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Sheet/VBox"]
+horizontal_alignment = 1
+text = "Etkileşim"
+
+[node name="Grid" type="GridContainer" parent="Sheet/VBox"]
+custom_minimum_size = Vector2(360, 0)
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Feed" type="Button" parent="Sheet/VBox/Grid"]
+custom_minimum_size = Vector2(0, 56)
+size_flags_horizontal = 3
+text = "Besle"
+
+[node name="Play" type="Button" parent="Sheet/VBox/Grid"]
+custom_minimum_size = Vector2(0, 56)
+size_flags_horizontal = 3
+text = "Oyna"
+
+[node name="Sleep" type="Button" parent="Sheet/VBox/Grid"]
+custom_minimum_size = Vector2(0, 56)
+size_flags_horizontal = 3
+text = "Uyut"
+
+[node name="Clean" type="Button" parent="Sheet/VBox/Grid"]
+custom_minimum_size = Vector2(0, 56)
+size_flags_horizontal = 3
+text = "Temizle"
+
+[node name="Secondary" type="VBoxContainer" parent="Sheet/VBox"]
+theme_override_constants/separation = 6
+
+[node name="Close" type="Button" parent="Sheet/VBox"]
+text = "Kapat"

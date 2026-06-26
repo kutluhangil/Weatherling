@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/hud/top_bar.gd" id="1_tb"]
+
+[node name="TopBar" type="Control"]
+anchor_right = 1.0
+offset_bottom = 88.0
+mouse_filter = 2
+script = ExtResource("1_tb")
+
+[node name="Row" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 10.0
+offset_right = -16.0
+offset_bottom = -8.0
+mouse_filter = 2
+
+[node name="Left" type="VBoxContainer" parent="Row"]
+mouse_filter = 2
+
+[node name="Brand" type="Label" parent="Row/Left"]
+text = "Weatherling"
+
+[node name="Weather" type="Label" parent="Row/Left"]
+text = "—"
+
+[node name="Spacer" type="Control" parent="Row"]
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Right" type="VBoxContainer" parent="Row"]
+alignment = 2
+mouse_filter = 2
+
+[node name="Coin" type="Label" parent="Row/Right"]
+text = "0"
+horizontal_alignment = 2
+
+[node name="Level" type="Label" parent="Row/Right"]
+text = "LVL 1"
+horizontal_alignment = 2
+
+[node name="Xp" type="ProgressBar" parent="Row/Right"]
+custom_minimum_size = Vector2(96, 6)

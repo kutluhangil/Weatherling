@@ -4,7 +4,7 @@
 class_name Creature
 extends Node2D
 
-enum State { IDLE, HAPPY, SAD, SLEEPY, SLEEP, EAT, PET_REACT, COLD, HOT, SICK, DEVOTION }
+enum State { IDLE, HAPPY, SAD, SLEEPY, SLEEP, EAT, PET_REACT, COLD, HOT, SICK }
 
 ## Evreye göre placeholder palet (gövde modulate) ve taban ölçek. (Plan §7, §11.1)
 const STAGE_PALETTE := {
@@ -39,7 +39,6 @@ func _ready() -> void:
 	EventBus.time_phase_changed.connect(_on_phase_changed)
 	EventBus.weather_changed.connect(_on_weather_changed)
 	EventBus.state_loaded.connect(func(_s): _apply_stage_look())
-	EventBus.devotion_time.connect(_on_devotion)
 	EventBus.settings_changed.connect(_on_settings_changed)
 	_update_motion()
 	_on_phase_changed(TimeService.get_phase())  # açılışta gece ise uyu
@@ -185,16 +184,6 @@ func _on_weather_changed(_state: int, temp: float, _is_day: bool) -> void:
 	elif temp >= 31.0:
 		set_state(State.HOT)
 	elif state == State.COLD or state == State.HOT:
-		set_state(State.IDLE)
-
-
-## İnanç ritüeli — yaratık kendiliğinden huzurlu bir an yaşar. Ceza yok (Plan §8).
-func _on_devotion(_faith: String, _ritual: String) -> void:
-	if state == State.SLEEP:
-		return
-	set_state(State.DEVOTION)
-	await get_tree().create_timer(5.0).timeout
-	if state == State.DEVOTION:
 		set_state(State.IDLE)
 
 

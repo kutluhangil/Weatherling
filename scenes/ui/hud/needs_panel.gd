@@ -19,14 +19,19 @@ func _ready() -> void:
 		row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		var lbl := Label.new()
 		lbl.text = tr(LABEL_KEYS[k])
-		lbl.custom_minimum_size = Vector2(76, 0)
+		lbl.custom_minimum_size = Vector2(72, 0)
+		lbl.add_theme_color_override("font_color", Palette.ON_SURFACE_VARIANT)
+		lbl.add_theme_font_size_override("font_size", 12)
 		var bar := ProgressBar.new()
 		bar.min_value = 0.0
 		bar.max_value = 100.0
 		bar.show_percentage = false
-		bar.custom_minimum_size = Vector2(96, 14)
+		bar.custom_minimum_size = Vector2(96, 12)
 		bar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		# Pixel-Prime: ihtiyaca özel renk + koyu track.
+		bar.add_theme_stylebox_override("background", UiFactory.bar_track())
+		bar.add_theme_stylebox_override("fill", UiFactory.bar_fill(Palette.need_color(k)))
 		row.add_child(lbl)
 		row.add_child(bar)
 		add_child(row)

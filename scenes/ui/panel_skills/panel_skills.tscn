@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scenes/ui/panel_skills/panel_skills.gd" id="1_ps"]
+[ext_resource type="Script" path="res://scenes/ui/panel_skills/skill_graph.gd" id="2_sg"]
 
 [node name="PanelSkills" type="Control"]
 layout_mode = 3
@@ -41,13 +42,10 @@ text = "Skill"
 horizontal_alignment = 1
 text = "🪙 0"
 
-[node name="Scroll" type="ScrollContainer" parent="Panel/VBox"]
-custom_minimum_size = Vector2(320, 360)
-size_flags_vertical = 3
-
-[node name="List" type="VBoxContainer" parent="Panel/VBox/Scroll"]
-size_flags_horizontal = 3
-theme_override_constants/separation = 6
+[node name="Graph" type="Control" parent="Panel/VBox"]
+custom_minimum_size = Vector2(330, 384)
+clip_contents = true
+script = ExtResource("2_sg")
 
 [node name="Close" type="Button" parent="Panel/VBox"]
 text = "Kapat"

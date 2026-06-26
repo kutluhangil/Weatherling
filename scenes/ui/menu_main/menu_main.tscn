@@ -46,9 +46,6 @@ text = "Mağaza"
 [node name="Wardrobe" type="Button" parent="Panel/VBox"]
 text = "Gardırop"
 
-[node name="Faith" type="Button" parent="Panel/VBox"]
-text = "İnanç"
-
 [node name="Journal" type="Button" parent="Panel/VBox"]
 text = "Günlük"
 

@@ -26,9 +26,6 @@ signal item_purchased(item_id: String)
 signal cosmetics_changed(equipped: Dictionary)
 signal skill_unlocked(skill_id: String)
 
-# --- İnanç ----------------------------------------------------------
-signal devotion_time(faith: String, ritual: String)
-
 # --- Olaylar --------------------------------------------------------
 signal random_event(event_id: String)
 signal seasonal_event(event_id: String)

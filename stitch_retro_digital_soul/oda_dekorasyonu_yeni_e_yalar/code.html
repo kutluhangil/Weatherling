@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Weatherling - Oda Dekoru</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=JetBrains+Mono:wght@100..800&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#36233c",
+                        "surface-container": "#2b1931",
+                        "error-container": "#93000a",
+                        "primary": "#ffc4a1",
+                        "on-error": "#690005",
+                        "on-primary": "#522300",
+                        "surface-bright": "#46324c",
+                        "secondary-fixed": "#f1dbff",
+                        "on-tertiary": "#3f2e00",
+                        "on-surface": "#f6d9fa",
+                        "tertiary": "#f8ca60",
+                        "inverse-primary": "#95490d",
+                        "status-hunger": "#FF4D6D",
+                        "outline": "#a28c80",
+                        "on-secondary": "#480e76",
+                        "twilight-indigo": "#3B2657",
+                        "secondary": "#deb7ff",
+                        "primary-container": "#ff9d5c",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-container": "#5a4300",
+                        "on-primary-container": "#743500",
+                        "primary-fixed-dim": "#ffb68a",
+                        "outline-variant": "#544339",
+                        "tertiary-fixed": "#ffdf9b",
+                        "inverse-surface": "#f6d9fa",
+                        "status-love": "#F72585",
+                        "on-surface-variant": "#dac2b4",
+                        "on-tertiary-fixed": "#251a00",
+                        "status-energy": "#4CC9F0",
+                        "surface-tint": "#ffb68a",
+                        "tertiary-fixed-dim": "#edc157",
+                        "horizon-glow": "#FFC078",
+                        "primary-fixed": "#ffdbc8",
+                        "surface-container-highest": "#412e47",
+                        "on-background": "#f6d9fa",
+                        "surface-variant": "#412e47",
+                        "on-primary-fixed": "#321300",
+                        "inverse-on-surface": "#3c2942",
+                        "on-secondary-fixed": "#2d0050",
+                        "on-secondary-fixed-variant": "#602c8e",
+                        "secondary-fixed-dim": "#deb7ff",
+                        "background": "#1d0c24",
+                        "deep-plum": "#1A0F1F",
+                        "surface-container-low": "#26152c",
+                        "dusk-amber": "#E87C3E",
+                        "secondary-container": "#622f91",
+                        "tertiary-container": "#daaf48",
+                        "on-secondary-container": "#d4a5ff",
+                        "on-primary-fixed-variant": "#743500",
+                        "error": "#ffb4ab",
+                        "surface": "#1d0c24",
+                        "surface-container-lowest": "#18071e",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "surface-dim": "#1d0c24"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "pixel-unit": "4px",
+                        "margin-desktop": "32px",
+                        "margin-mobile": "20px",
+                        "container-padding": "12px",
+                        "touch-target-min": "48px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["JetBrains Mono"],
+                        "label-md": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Space Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "pixel-display": ["Space Grotesk"],
+                        "body-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "pixel-display": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-pixel-float { animation: float 3s ease-in-out infinite; }
+
+        .nine-patch-border {
+            border: 4px solid #E87C3E;
+            box-shadow: 0 0 0 4px #1A0F1F, inset 0 0 0 2px rgba(255, 157, 92, 0.3);
+            image-rendering: pixelated;
+        }
+
+        .button-press:active {
+            transform: translateY(2px);
+            box-shadow: none !important;
+        }
+
+        .pixel-scanline {
+            background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.1) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #1A0F1F; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #ff9d5c; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md overflow-hidden h-screen flex flex-col">
+<!-- Top App Bar -->
+<header class="bg-deep-plum/80 backdrop-blur-sm fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile h-touch-target-min">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-horizon-glow">cloudy_snowing</span>
+<h1 class="font-pixel-display text-pixel-display text-dusk-amber">Oda Dekoru</h1>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low/60 px-3 py-1 rounded-full border border-primary-container/30">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+<span class="font-label-md text-label-md text-horizon-glow">1,240</span>
+</div>
+</header>
+<!-- Main Canvas Area (Room Preview) -->
+<main class="flex-1 relative pt-touch-target-min pb-[400px]">
+<!-- Parallax Background Layer: Rainy Forest -->
+<div class="absolute inset-0 z-0 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center opacity-40 scale-110" data-alt="A premium 16-bit pixel art forest at dusk during a heavy rainfall. Tall, dark silhouettes of ancient trees sway slightly in the wind. The atmosphere is melancholic and cozy, with deep purples, indigo, and soft highlights of blue. Rain streaks are visible as fine pixel lines falling diagonally across the frame." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDKgrW0KEQ9KYXcuIzp6Npx5clXy1FtzrYeMSomVRv5y8M-QJhmCiKnkbhE-i6mmq_V-0bz7GL-tX3rGWwNr18bQ_W2co30SabLIUgY3UrV9BQrRNQAOaxFpAdotol4Mna9vI8y1vOcnvoKjEDWilbmbWrKLZVjgmhpms0oB9Q0N4s7lMl4MvwoLscbjYpIIz2IUAnpAncijsxRovAkBrZPYlVJ7ui0FWOrhJasFPVDlPtRQEcDcf-wFZyash4nmBeiSyNk7ZiUQAQ')"></div>
+</div>
+<!-- Room Scene -->
+<div class="relative h-full w-full flex flex-col items-center justify-center p-gutter">
+<!-- The Room Container -->
+<div class="w-full max-w-md aspect-square relative nine-patch-border bg-deep-plum/90 overflow-hidden group">
+<!-- Window -->
+<div class="absolute top-8 left-1/2 -translate-x-1/2 w-48 h-32 border-4 border-dusk-amber/50 bg-twilight-indigo/80 overflow-hidden">
+<div class="absolute inset-0 opacity-60 bg-cover" data-alt="A pixel-art view through a window showing a rainy night forest. Soft glows of distant bioluminescent plants are visible through the rain streaks. The style is nostalgic and moody, using deep purple and teal hues consistent with a lo-fi aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD0Lu5yTT14LOOtQ8x1w-2AyE4OcYepE5KrbsHZH7awgWMtQbFn2Se5hSDTE5FHBaYzF3jOWzo4ak2WZO7M4J7mHCMzcGSDjqq3G6E44hxI1P0tbyOKdXYoFD4UNsVf66ohUdqDEE6sO3QAQXTIySbV2BLV8jt214mDO5h829h31Nk7ymFdQzS6pb1jdEPx6vdKiY8RpEQO-p_BkmB2mIbVljtvacuxvSd-YSxVNwwASmkXgMa8YO64HCZY4h4kjc1-kc_8QJt7Pcg')"></div>
+<!-- Window Panes -->
+<div class="absolute inset-0 flex">
+<div class="w-1/2 h-full border-r-2 border-dusk-amber/30"></div>
+<div class="w-1/2 h-full"></div>
+</div>
+</div>
+<!-- Floor & Rug -->
+<div class="absolute bottom-0 w-full h-24 bg-[#3d2b1f] border-t-4 border-dusk-amber/20">
+<div class="absolute inset-0 opacity-20" style="background-image: repeating-linear-gradient(90deg, transparent, transparent 20px, #000 20px, #000 22px);"></div>
+<!-- Soft Rug -->
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 w-48 h-12 bg-secondary-container rounded-full shadow-lg border-2 border-on-secondary-container opacity-90"></div>
+</div>
+<!-- The Creature -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 w-48 h-48 animate-pixel-float flex items-center justify-center">
+<img alt="Tomurcuk Creature" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLuy8ZnefHGxBs254GACMLp6l5sEGSFWurgangJMF2zceAgnjmM3BhE9xcNp-dhThPwhpa3QTyvb-topsmpsTe110tllN6fLhvjtC7OmMWVxRtqBMFmcyrNLWmx5v6qILCGLrLgOHXJHtZQuz-7CrICZimg0vroaI9kaJlpCmgCyf7mbfwJ-5uULueGVVhLVzSlebjCQoYnYIorGDxMdjr24Wyh9CUXBE_AZsyTeuzKAgXfzeB5EdC5O_g"/>
+</div>
+<!-- CRT Overlays -->
+<div class="pixel-scanline absolute inset-0 opacity-10"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent"></div>
+</div>
+<!-- Contextual Hint -->
+<div class="mt-4 px-4 py-2 bg-surface-container-highest/80 backdrop-blur rounded-lg border-2 border-primary/20">
+<p class="text-label-sm font-label-sm text-center text-on-surface-variant">
+                    Sürükleyerek eşyaları yerleştirin
+                </p>
+</div>
+</div>
+</main>
+<!-- Shop Panel -->
+<section class="fixed bottom-0 left-0 w-full bg-surface-container h-[420px] rounded-t-full z-40 border-t-4 border-primary-container shadow-2xl shadow-primary/20 flex flex-col">
+<!-- Tabs -->
+<nav class="flex justify-around items-center pt-4 pb-2 px-margin-mobile">
+<button class="flex flex-col items-center gap-1 group">
+<div class="p-2 bg-secondary-container text-on-secondary-container rounded-xl border-b-2 border-r-2 border-on-secondary-container scale-110 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-xl">chair</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-tertiary-container">Mobilya</span>
+</button>
+<button class="flex flex-col items-center gap-1 opacity-60 hover:opacity-100 transition-opacity">
+<div class="p-2 bg-surface-container-high rounded-xl">
+<span class="material-symbols-outlined text-xl">potted_plant</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Bitkiler</span>
+</button>
+<button class="flex flex-col items-center gap-1 hover:opacity-100 transition-opacity">
+<div class="p-2 bg-surface-container-high rounded-xl border-tertiary/60">
+<span class="material-symbols-outlined text-xl">frame_person</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Poster</span>
+</button>
+<button class="flex flex-col items-center gap-1 hover:opacity-100 transition-opacity">
+<div class="p-2 bg-surface-container-high rounded-xl border-tertiary/60">
+<span class="material-symbols-outlined text-xl">devices</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Cihazlar</span>
+</button>
+</nav>
+<!-- Item Grid -->
+<div class="flex-1 overflow-y-auto px-margin-mobile py-4 custom-scrollbar">
+<div class="grid grid-cols-2 gap-4"><div class="nine-patch-border bg-surface-container-low p-2 flex flex-col gap-2 group hover:border-tertiary transition-colors"><div class="aspect-square bg-twilight-indigo/40 rounded flex items-center justify-center relative overflow-hidden"><div class="absolute inset-0 bg-cover opacity-80" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCalKU-lg2gddtqU3cjbtQYfRxz4isWJl_VAOr3kfbktYT-f0qxrq2f5jD9GHqje2h9qRvzBA4DqnIvSPuZom_LkOmJOliHYcDAc5j0RPxOYNpVjBCTkAh9KGE-AwH1xDLubvsfT7_ZywsFpfzh06r88wZcRUXNUn2qhD79IkDEH7reMPqvuk-Y3tJlWo4g6gAMohQg9YmWVeVRe5tGoKmSFpcIPJdmp70gaku74MSalNxykAmirHlHaj875hjgQ6g7ApMzQVdiY84')"></div></div><div class="flex flex-col"><span class="text-label-md font-label-md text-primary">Retro Plak Çalar</span><div class="flex justify-between items-center mt-1"><div class="flex items-center gap-1"><span class="material-symbols-outlined text-tertiary text-xs" style="font-variation-settings: 'FILL' 1;">monetization_on</span><span class="text-label-sm font-label-sm">850</span></div><button class="bg-primary-container text-on-primary-container px-2 py-1 rounded text-label-sm font-label-sm button-press shadow-[2px_2px_0px_#743500]">Al</button></div></div></div><div class="nine-patch-border bg-surface-container-low p-2 flex flex-col gap-2 group hover:border-tertiary transition-colors"><div class="aspect-square bg-twilight-indigo/40 rounded flex items-center justify-center relative overflow-hidden"><div class="absolute inset-0 bg-cover opacity-80" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBs6nHuxPDXa-SlpdRuP0SVWZej8vY-yjnpm4r_p-ljOSw-9cQmXaLdTD9w3scFmL-JpkJdlhrit1Y7ax02tInf56fCauJnLlg-a3uKRIYS1q6N1ANHyhnidGIxgG1RR-EbvdhjcE_y8BVyYocCl6Z2rZc1izygW8GISAvumvGe6d2n2gl2PGLL5hYvDGSz3XBizKGc7RuVxVHWv-nkhFVU01l4mLQGXoIq8ks8277UiHdewuIlezhphGgNEh5KBEeXTZcXwxG2JIs')"></div></div><div class="flex flex-col"><span class="text-label-md font-label-md text-primary">Orman Posteri</span><div class="flex justify-between items-center mt-1"><div class="flex items-center gap-1"><span class="material-symbols-outlined text-tertiary text-xs" style="font-variation-settings: 'FILL' 1;">monetization_on</span><span class="text-label-sm font-label-sm">150</span></div><button class="bg-primary-container text-on-primary-container px-2 py-1 rounded text-label-sm font-label-sm button-press shadow-[2px_2px_0px_#743500]">Al</button></div></div></div></div>
+</div>
+<!-- Bottom Navigation Shell -->
+<div class="bg-surface-container w-full h-[72px] flex justify-around items-center px-gutter pb-safe border-t-4 border-primary-container">
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-pixel-unit opacity-80 transition-transform hover:scale-105 active:translate-y-0.5">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-pixel-unit opacity-80 transition-transform hover:scale-105 active:translate-y-0.5">
+<span class="material-symbols-outlined">sports_esports</span>
+<span class="font-label-sm text-label-sm">Play</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl p-pixel-unit scale-110 border-b-2 border-r-2 border-on-secondary-container active:translate-y-0.5">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-label-sm text-label-sm">Magaza</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-pixel-unit opacity-80 transition-transform hover:scale-105 active:translate-y-0.5">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</button>
+</div>
+</section>
+<!-- Interactive Script for micro-interactions -->
+<script>
+        // Simple scale effect on tap for all buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('touchstart', () => {
+                button.classList.add('scale-95');
+            });
+            button.addEventListener('touchend', () => {
+                button.classList.remove('scale-95');
+            });
+        });
+
+        // Toggle Active state simulation for categories
+        const tabs = document.querySelectorAll('nav button');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => {
+                    const iconBox = t.querySelector('div');
+                    const label = t.querySelector('span:last-child');
+                    iconBox.className = 'p-2 bg-surface-container-high rounded-xl';
+                    label.className = 'text-label-sm font-label-sm text-on-surface-variant';
+                    t.classList.add('opacity-60');
+                });
+                
+                const activeIconBox = tab.querySelector('div');
+                const activeLabel = tab.querySelector('span:last-child');
+                activeIconBox.className = 'p-2 bg-secondary-container text-on-secondary-container rounded-xl border-b-2 border-r-2 border-on-secondary-container scale-110';
+                activeLabel.className = 'text-label-sm font-label-sm text-on-tertiary-container';
+                tab.classList.remove('opacity-60');
+            });
+        });
+    </script>
+</body></html>

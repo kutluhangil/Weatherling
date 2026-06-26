@@ -1,18 +1,18 @@
 [gd_scene load_steps=20 format=3]
 
 [ext_resource type="Script" path="res://scenes/home/home.gd" id="1_home"]
+[ext_resource type="PackedScene" path="res://scenes/scene_background/scene_background.tscn" id="20_bg"]
+[ext_resource type="PackedScene" path="res://scenes/minigames/play_screen.tscn" id="24_play"]
 [ext_resource type="Script" path="res://scenes/ui/hud/hud_safe_area.gd" id="17_safe"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/top_bar.tscn" id="21_top"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/bottom_nav.tscn" id="22_nav"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud/interaction_drawer.tscn" id="23_drawer"]
 [ext_resource type="PackedScene" path="res://scenes/ui/panel_achievements/panel_achievements.tscn" id="18_ach"]
 [ext_resource type="PackedScene" path="res://scenes/ui/panel_journal/panel_journal.tscn" id="19_journal"]
 [ext_resource type="PackedScene" path="res://scenes/creature/creature.tscn" id="2_creature"]
-[ext_resource type="PackedScene" path="res://scenes/weather_vfx/sky.tscn" id="3_sky"]
-[ext_resource type="Script" path="res://scenes/weather_vfx/day_night.gd" id="4_daynight"]
-[ext_resource type="PackedScene" path="res://scenes/weather_vfx/weather_vfx.tscn" id="5_vfx"]
 [ext_resource type="PackedScene" path="res://scenes/ui/hud/needs_panel.tscn" id="6_needs"]
-[ext_resource type="PackedScene" path="res://scenes/ui/hud/action_bar.tscn" id="7_ab"]
 [ext_resource type="PackedScene" path="res://scenes/ui/hud/speech_bubble.tscn" id="8_sb"]
 [ext_resource type="PackedScene" path="res://scenes/ui/panel_feed/panel_feed.tscn" id="9_feed"]
-[ext_resource type="PackedScene" path="res://scenes/ui/panel_faith/panel_faith.tscn" id="10_faith"]
 [ext_resource type="PackedScene" path="res://scenes/ui/menu_main/menu_main.tscn" id="11_menu"]
 [ext_resource type="PackedScene" path="res://scenes/ui/panel_skills/panel_skills.tscn" id="12_skills"]
 [ext_resource type="PackedScene" path="res://scenes/ui/panel_shop/panel_shop.tscn" id="13_shop"]
@@ -29,50 +29,31 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_home")
 
-[node name="Background" type="ColorRect" parent="."]
-layout_mode = 1
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.137255, 0.156863, 0.235294, 1)
-
-[node name="DayNight" type="CanvasModulate" parent="."]
-script = ExtResource("4_daynight")
-
-[node name="Sky" parent="." instance=ExtResource("3_sky")]
+[node name="SceneBackground" parent="." instance=ExtResource("20_bg")]
 
 [node name="CreatureAnchor" type="Node2D" parent="."]
 position = Vector2(270, 560)
 
 [node name="Creature" parent="CreatureAnchor" instance=ExtResource("2_creature")]
 
-[node name="WeatherVFX" parent="." instance=ExtResource("5_vfx")]
-
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("17_safe")
 
-[node name="Info" type="Label" parent="HUD"]
-anchor_right = 1.0
-offset_left = 24.0
-offset_top = 18.0
-offset_right = -24.0
-offset_bottom = 64.0
-mouse_filter = 2
-text = "Weatherling"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="NeedsPanel" parent="HUD" instance=ExtResource("6_needs")]
+offset_left = 16.0
+offset_top = 98.0
+offset_right = 196.0
+offset_bottom = 200.0
+
+[node name="TopBar" parent="HUD" instance=ExtResource("21_top")]
 
 [node name="SpeechBubble" parent="HUD" instance=ExtResource("8_sb")]
 
-[node name="ActionBar" parent="HUD" instance=ExtResource("7_ab")]
+[node name="BottomNav" parent="HUD" instance=ExtResource("22_nav")]
+
+[node name="InteractionDrawer" parent="HUD" instance=ExtResource("23_drawer")]
 
 [node name="PanelFeed" parent="HUD" instance=ExtResource("9_feed")]
-
-[node name="PanelFaith" parent="HUD" instance=ExtResource("10_faith")]
 
 [node name="MenuMain" parent="HUD" instance=ExtResource("11_menu")]
 
@@ -89,3 +70,5 @@ vertical_alignment = 1
 [node name="PanelAchievements" parent="HUD" instance=ExtResource("18_ach")]
 
 [node name="PanelJournal" parent="HUD" instance=ExtResource("19_journal")]
+
+[node name="PlayScreen" parent="HUD" instance=ExtResource("24_play")]

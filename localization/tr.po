@@ -523,3 +523,56 @@ msgstr "Rüzgâr her şeyi savurdu 🍃"
 
 msgid "JOURNAL_WINDY_2"
 msgstr "Rüzgârda savruldum durdum."
+
+# --- Navigasyon / etkileşim (Pixel-Prime) ---
+msgid "NAV_HOME"
+msgstr "Ana"
+
+msgid "NAV_PLAY"
+msgstr "Oyun"
+
+msgid "INTERACT_TITLE"
+msgstr "Etkileşim"
+
+# --- Mini-oyunlar ---
+msgid "MG_TITLE"
+msgstr "Oyna"
+
+msgid "MG_RAIN"
+msgstr "Hava Avcısı"
+
+msgid "MG_RAIN_DESC"
+msgstr "Düşen taneleri yakala!"
+
+msgid "MG_STAR"
+msgstr "Yıldız Birleştirme"
+
+msgid "MG_STAR_DESC"
+msgstr "Gökyüzü desenlerini bul."
+
+msgid "MG_RHYTHM"
+msgstr "Ritim Ormanı"
+
+msgid "MG_RHYTHM_DESC"
+msgstr "Müziğin ritmine zıpla!"
+
+msgid "MG_PLAY"
+msgstr "OYNA"
+
+msgid "MG_LOCKED"
+msgstr "Yakında"
+
+msgid "MG_HIGH"
+msgstr "En Yüksek"
+
+msgid "MG_SCORE"
+msgstr "Skor"
+
+msgid "MG_DONE"
+msgstr "Bitti!"
+
+msgid "MG_ENERGY_LOW"
+msgstr "Yorgun... önce dinlenmeli."
+
+msgid "SKILL_ROOT"
+msgstr "Temel Bağ"

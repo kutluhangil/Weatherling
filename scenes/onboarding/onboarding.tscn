@@ -45,11 +45,6 @@ min_value = 1.0
 max_value = 110.0
 value = 25.0
 
-[node name="FaithLabel" type="Label" parent="Center/VBox"]
-text = "İnanç"
-
-[node name="FaithOpt" type="OptionButton" parent="Center/VBox"]
-
 [node name="CityLabel" type="Label" parent="Center/VBox"]
 text = "Şehir"
 

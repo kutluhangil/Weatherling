@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/hud/bottom_nav.gd" id="1_bn"]
+
+[node name="BottomNav" type="Control"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -96.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_bn")
+
+[node name="Bg" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Row" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 10.0
+offset_right = -8.0
+offset_bottom = -10.0
+theme_override_constants/separation = 4
+
+[node name="Home" type="Button" parent="Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Home"
+
+[node name="Oyna" type="Button" parent="Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Oyna"
+
+[node name="FabSlot" type="Control" parent="Row"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="Magaza" type="Button" parent="Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mağaza"
+
+[node name="Menu" type="Button" parent="Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Menü"
+
+[node name="Fab" type="Button" parent="."]
+custom_minimum_size = Vector2(64, 64)
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = -34.0
+offset_right = 32.0
+offset_bottom = 30.0
+grow_horizontal = 2
