@@ -1,0 +1,47 @@
+<svg width="432" height="432" viewBox="0 0 432 432" xmlns="http://www.w3.org/2000/svg">
+  <!-- Adaptive icon ÖN PLAN katmanı (432x432, ŞEFFAF). Anahtar görsel, merkezde
+       güvenli bölge (~264px daire) içinde: bulut + yağmur + minik yaratık + ay. -->
+  <defs>
+    <clipPath id="moonClip"><circle cx="306" cy="120" r="26"/></clipPath>
+  </defs>
+
+  <!-- Ay (hilal) -->
+  <g clip-path="url(#moonClip)">
+    <circle cx="306" cy="120" r="26" fill="#ffe6ad"/>
+    <circle cx="320" cy="110" r="24" fill="#241f4a" opacity="0.9"/>
+  </g>
+
+  <!-- Bulut -->
+  <g fill="#dde5f2">
+    <circle cx="180" cy="168" r="30"/>
+    <circle cx="214" cy="152" r="38"/>
+    <circle cx="250" cy="170" r="28"/>
+    <rect x="176" y="166" width="80" height="34" rx="17"/>
+  </g>
+  <g fill="#ffffff" opacity="0.6">
+    <circle cx="206" cy="150" r="24"/>
+  </g>
+
+  <!-- Yağmur -->
+  <g fill="#7fb4ff">
+    <rect x="184" y="206" width="7" height="20" rx="3.5"/>
+    <rect x="214" y="214" width="7" height="20" rx="3.5"/>
+    <rect x="244" y="206" width="7" height="20" rx="3.5"/>
+  </g>
+
+  <!-- Yaratık -->
+  <ellipse cx="216" cy="296" rx="74" ry="66" fill="#f4ead8"/>
+  <ellipse cx="216" cy="296" rx="74" ry="66" fill="none" stroke="#d8c7a6" stroke-width="3"/>
+  <!-- filiz (yaprak) -->
+  <path d="M216 232c-10-14-2-30 0-30 2 0 10 16 0 30z" fill="#8fd089"/>
+  <!-- gözler -->
+  <circle cx="194" cy="292" r="7.5" fill="#3a3550"/>
+  <circle cx="238" cy="292" r="7.5" fill="#3a3550"/>
+  <circle cx="196" cy="289" r="2.4" fill="#ffffff"/>
+  <circle cx="240" cy="289" r="2.4" fill="#ffffff"/>
+  <!-- yanak -->
+  <circle cx="178" cy="308" r="8" fill="#f6b8c0" opacity="0.8"/>
+  <circle cx="254" cy="308" r="8" fill="#f6b8c0" opacity="0.8"/>
+  <!-- gülümseme -->
+  <path d="M206 312c6 7 14 7 20 0" fill="none" stroke="#3a3550" stroke-width="3.5" stroke-linecap="round"/>
+</svg>

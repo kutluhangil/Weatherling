@@ -1,0 +1,19 @@
+<svg width="432" height="432" viewBox="0 0 432 432" xmlns="http://www.w3.org/2000/svg">
+  <!-- Adaptive icon ARKA PLAN katmanı (432x432, tam dolu). Alacakaranlık gradyanı. -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#241f4a"/>
+      <stop offset="0.55" stop-color="#3a2f63"/>
+      <stop offset="1" stop-color="#e7a977"/>
+    </linearGradient>
+  </defs>
+  <rect width="432" height="432" fill="url(#sky)"/>
+  <g fill="#ffffff" opacity="0.55">
+    <circle cx="70" cy="64" r="2.4"/>
+    <circle cx="120" cy="96" r="1.6"/>
+    <circle cx="350" cy="58" r="2.2"/>
+    <circle cx="300" cy="104" r="1.5"/>
+    <circle cx="388" cy="120" r="1.8"/>
+    <circle cx="44" cy="150" r="1.5"/>
+  </g>
+</svg>

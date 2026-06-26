@@ -5,6 +5,8 @@
 # Export / build çıktıları ------------------------------------------
 /build/
 /export/
+# Üretilen store PNG'leri (SVG kaynaklardan; bkz. art/ui/store/README.md)
+art/ui/store/png/
 *.apk
 *.aab
 *.ipa

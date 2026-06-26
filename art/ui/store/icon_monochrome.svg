@@ -1,0 +1,18 @@
+<svg width="432" height="432" viewBox="0 0 432 432" xmlns="http://www.w3.org/2000/svg">
+  <!-- Adaptive icon MONOCHROME katmanı (Android 13+ temalı ikon). Tek renk siluet;
+       sistem rengi tonlar — alfa/şekil önemli. Güvenli bölge içinde. -->
+  <g fill="#1f1f1f">
+    <!-- bulut -->
+    <circle cx="180" cy="172" r="28"/>
+    <circle cx="214" cy="156" r="36"/>
+    <circle cx="250" cy="174" r="26"/>
+    <rect x="176" y="170" width="78" height="32" rx="16"/>
+    <!-- yağmur -->
+    <rect x="186" y="208" width="7" height="18" rx="3.5"/>
+    <rect x="214" y="216" width="7" height="18" rx="3.5"/>
+    <rect x="242" y="208" width="7" height="18" rx="3.5"/>
+    <!-- yaratık + filiz -->
+    <ellipse cx="216" cy="298" rx="72" ry="64"/>
+    <path d="M216 236c-9-13-2-28 0-28 2 0 9 15 0 28z"/>
+  </g>
+</svg>
