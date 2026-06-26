@@ -142,10 +142,12 @@ func _set_status(s: String) -> void:
 
 
 # --- Oturum kalıcılığı ----------------------------------------------
-# TODO(Faz 11): token'ları Android Keystore köprüsüyle sakla (şimdilik yerel dosya).
+# Token'lar artık cihaz türevli anahtarla ŞİFRELİ saklanır (SaveService.device_pass).
+# Eski sürüm düz binary yazdı; _load_session bunu algılayıp şifreliye taşır.
+# TODO(Faz 11+): Android Keystore köprüsü ile donanım-destekli saklama.
 
 func _save_session() -> void:
-	var f := FileAccess.open(SESSION_PATH, FileAccess.WRITE)
+	var f := FileAccess.open_encrypted_with_pass(SESSION_PATH, FileAccess.WRITE, SaveService.device_pass())
 	if f != null:
 		f.store_var({"at": access_token, "rt": refresh_token, "uid": user_id, "email": email}, false)
 		f.close()
@@ -154,7 +156,12 @@ func _save_session() -> void:
 func _load_session() -> void:
 	if not FileAccess.file_exists(SESSION_PATH):
 		return
-	var f := FileAccess.open(SESSION_PATH, FileAccess.READ)
+	# Önce şifreli (cihaz anahtarı); başarısızsa eski düz binary (migrasyon).
+	var migrated := false
+	var f := FileAccess.open_encrypted_with_pass(SESSION_PATH, FileAccess.READ, SaveService.device_pass())
+	if f == null:
+		f = FileAccess.open(SESSION_PATH, FileAccess.READ)
+		migrated = true
 	if f == null:
 		return
 	var d: Variant = f.get_var(false)
@@ -164,6 +171,8 @@ func _load_session() -> void:
 		refresh_token = str(d.get("rt", ""))
 		user_id = str(d.get("uid", ""))
 		email = str(d.get("email", ""))
+		if migrated:
+			_save_session()  # şifreli formata taşı
 		_set_status("signed_in")
 
 

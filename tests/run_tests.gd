@@ -12,6 +12,8 @@ var LS: GDScript
 var NS: GDScript
 var TS: GDScript
 var AS: GDScript
+var JS: GDScript
+var SV: GDScript
 
 
 func _initialize() -> void:
@@ -20,6 +22,8 @@ func _initialize() -> void:
 	NS = load("res://autoload/needs_service.gd")
 	TS = load("res://autoload/time_service.gd")
 	AS = load("res://autoload/achievement_service.gd")
+	JS = load("res://autoload/journal_service.gd")
+	SV = load("res://autoload/save_service.gd")
 
 	_test_weather_wmo()
 	_test_stage_for_age()
@@ -28,6 +32,8 @@ func _initialize() -> void:
 	_test_season_for()
 	_test_moon_name()
 	_test_achievements()
+	_test_journal()
+	_test_device_pass()
 
 	print("\n==== %d passed, %d failed ====" % [_pass, _fail])
 	quit(1 if _fail > 0 else 0)
@@ -155,3 +161,27 @@ func _test_achievements() -> void:
 	_eq(b.has("soulmates") and b.has("close_bond"), true, "ach soulmates")
 	# 50 sevme → beloved.
 	_eq(AS.unlocked_for({"pet_count": 50}).has("beloved"), true, "ach beloved")
+
+
+# --- JournalService.note_keys_for ---------------------------------
+
+func _test_journal() -> void:
+	# Her hava durumu (0..6) en az bir not anahtarı döndürür.
+	for w in range(7):
+		_eq(JS.note_keys_for(w).size() >= 1, true, "journal pool %d" % w)
+	# Bilinmeyen hava → CLEAR (0) havuzuna düşer.
+	_eq(JS.note_keys_for(99), JS.note_keys_for(0), "journal unknown fallback")
+	# Yağmur havuzu kar havuzundan farklı.
+	_eq(JS.note_keys_for(3) != JS.note_keys_for(4), true, "journal distinct pools")
+
+
+# --- SaveService.device_pass --------------------------------------
+
+func _test_device_pass() -> void:
+	var p := SV.device_pass()
+	# SHA-256 hex → 64 karakter.
+	_eq(p.length(), 64, "device_pass length")
+	# Deterministik: aynı cihazda her çağrı aynı.
+	_eq(SV.device_pass(), p, "device_pass deterministic")
+	# Eski sabit anahtardan farklı (sabit-anahtar zaafı kalktı).
+	_eq(p != "weatherling_local_v1", true, "device_pass not legacy")

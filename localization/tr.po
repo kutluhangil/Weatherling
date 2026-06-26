@@ -468,3 +468,58 @@ msgstr "Yakın Bağ"
 
 msgid "ACH_soulmates"
 msgstr "Can Yoldaşı"
+
+# --- Günlük (Journal) ---
+msgid "MENU_JOURNAL"
+msgstr "Günlük"
+
+msgid "JOURNAL_TITLE"
+msgstr "Günlük"
+
+msgid "JOURNAL_EMPTY"
+msgstr "Henüz not yok. Yarın görüşürüz!"
+
+msgid "JOURNAL_COUNT"
+msgstr "%d not"
+
+msgid "JOURNAL_CLEAR_1"
+msgstr "Bugün gökyüzü masmaviydi, içim açıldı ☀️"
+
+msgid "JOURNAL_CLEAR_2"
+msgstr "Güneş vardı, biraz uzandım."
+
+msgid "JOURNAL_CLOUDS_1"
+msgstr "Bulutları izledim, şekiller buldum ☁️"
+
+msgid "JOURNAL_CLOUDS_2"
+msgstr "Gri ama sakin bir gündü."
+
+msgid "JOURNAL_FOG_1"
+msgstr "Her yer sisliydi, gizemli hissettim 🌫️"
+
+msgid "JOURNAL_FOG_2"
+msgstr "Sis içinde kaybolacağım sandım."
+
+msgid "JOURNAL_RAIN_1"
+msgstr "Bugün yağmur vardı, pencereden izledim 🌧️"
+
+msgid "JOURNAL_RAIN_2"
+msgstr "Yağmur sesiyle uyukladım."
+
+msgid "JOURNAL_SNOW_1"
+msgstr "İlk kar gibiydi, çok heyecanlandım ❄️"
+
+msgid "JOURNAL_SNOW_2"
+msgstr "Kar yağdı, üşüdüm ama mutluydum."
+
+msgid "JOURNAL_THUNDER_1"
+msgstr "Şimşekler çaktı, biraz korktum ⛈️"
+
+msgid "JOURNAL_THUNDER_2"
+msgstr "Gök gürledi, sıkıca sarıldım."
+
+msgid "JOURNAL_WINDY_1"
+msgstr "Rüzgâr her şeyi savurdu 🍃"
+
+msgid "JOURNAL_WINDY_2"
+msgstr "Rüzgârda savruldum durdum."

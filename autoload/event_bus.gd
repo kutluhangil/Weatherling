@@ -36,6 +36,9 @@ signal seasonal_event(event_id: String)
 # --- Başarımlar / koleksiyon (Plan §22) -----------------------------
 signal achievement_unlocked(id: String)        # yeni başarım açıldı (bir kez)
 
+# --- Günlük (Journal) (Plan §22) ------------------------------------
+signal journal_entry_added(date: String)        # o gün için ilk kayıt yazıldı
+
 # --- Kayıt / hesap --------------------------------------------------
 signal state_loaded(state: Resource)                   # CreatureState — GameManager yayar
 signal save_requested()

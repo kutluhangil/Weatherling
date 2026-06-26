@@ -12,6 +12,7 @@ extends Control
 @onready var account_panel: Control = $HUD/PanelAccount
 @onready var settings_panel: Control = $HUD/PanelSettings
 @onready var achievements_panel: Control = $HUD/PanelAchievements
+@onready var journal_panel: Control = $HUD/PanelJournal
 
 const WEATHER_NAMES := ["CLEAR", "CLOUDS", "FOG", "RAIN", "SNOW", "THUNDER", "WINDY"]
 
@@ -26,6 +27,7 @@ func _ready() -> void:
 	menu.open_account.connect(account_panel.open)
 	menu.open_settings.connect(settings_panel.open)
 	menu.open_achievements.connect(achievements_panel.open)
+	menu.open_journal.connect(journal_panel.open)
 	EventBus.weather_changed.connect(func(_s, _t, _d): _refresh())
 	EventBus.time_phase_changed.connect(func(_p): _refresh())
 	EventBus.offline_mode_changed.connect(func(_o): _refresh())

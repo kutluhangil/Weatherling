@@ -468,3 +468,58 @@ msgstr "Close Bond"
 
 msgid "ACH_soulmates"
 msgstr "Soulmates"
+
+# --- Journal ---
+msgid "MENU_JOURNAL"
+msgstr "Journal"
+
+msgid "JOURNAL_TITLE"
+msgstr "Journal"
+
+msgid "JOURNAL_EMPTY"
+msgstr "No notes yet. See you tomorrow!"
+
+msgid "JOURNAL_COUNT"
+msgstr "%d notes"
+
+msgid "JOURNAL_CLEAR_1"
+msgstr "The sky was so blue today, my heart lifted ☀️"
+
+msgid "JOURNAL_CLEAR_2"
+msgstr "Sun was out, I stretched a little."
+
+msgid "JOURNAL_CLOUDS_1"
+msgstr "Watched the clouds, found shapes ☁️"
+
+msgid "JOURNAL_CLOUDS_2"
+msgstr "Grey but a calm day."
+
+msgid "JOURNAL_FOG_1"
+msgstr "Everything was foggy, felt mysterious 🌫️"
+
+msgid "JOURNAL_FOG_2"
+msgstr "Thought I'd get lost in the fog."
+
+msgid "JOURNAL_RAIN_1"
+msgstr "It rained today, I watched from the window 🌧️"
+
+msgid "JOURNAL_RAIN_2"
+msgstr "Dozed off to the sound of rain."
+
+msgid "JOURNAL_SNOW_1"
+msgstr "Felt like the first snow, so excited ❄️"
+
+msgid "JOURNAL_SNOW_2"
+msgstr "It snowed, cold but happy."
+
+msgid "JOURNAL_THUNDER_1"
+msgstr "Lightning flashed, a bit scared ⛈️"
+
+msgid "JOURNAL_THUNDER_2"
+msgstr "Thunder rolled, I held on tight."
+
+msgid "JOURNAL_WINDY_1"
+msgstr "The wind tossed everything around 🍃"
+
+msgid "JOURNAL_WINDY_2"
+msgstr "I tumbled about in the wind."

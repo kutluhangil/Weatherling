@@ -13,9 +13,12 @@ Master Plan §16. Yayın öncesi her madde doğrulanır.
 - [x] **RLS.** Her tabloda "yalnızca kendi satırı" politikası. (Plan §8 DoD: iki hesapla test et.)
 
 ## Sertleştirilecek (TODO)
-- [ ] **Token saklama:** şu an oturum token'ı `user://session.dat` (binary). Faz 11+:
-      Android Keystore köprüsü (`AuthService._save_session` TODO).
-- [ ] **Yerel kayıt anahtarı:** `SaveService._PASS` sabit; cihaz/Keystore türevli anahtara geçir.
+- [~] **Token saklama:** oturum token'ı artık `user://session.dat` **cihaz türevli anahtarla
+      AES şifreli** (`AuthService._save/_load_session`, legacy düz binary'den migrasyonlu).
+      Faz 11+: tam donanım-destek için Android Keystore köprüsü hâlâ hedef.
+- [x] **Yerel kayıt anahtarı:** sabit `_PASS` kaldırıldı → `SaveService.device_pass()`
+      (`OS.get_unique_id()` + salt → SHA-256), eski sabit anahtardan migrasyonlu.
+      "Tek sabit tüm kurulumları açar" zaafı giderildi. Keystore donanım-destek hâlâ hedef.
 - [ ] Düşük donanım cihaz testi (ucuz Android) — akıcılık + ısı.
 - [ ] Orphan node kontrolü (sahne geçişlerinde), bellek profili (Godot ObjectDB diff).
 

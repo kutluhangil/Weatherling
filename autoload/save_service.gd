@@ -5,9 +5,21 @@ extends Node
 
 const PATH := "user://creature.save"
 
-## TODO(Faz 11): Bu sabit yerine cihaz/Android Keystore türevli anahtar kullan.
-## Yerel dosya şifrelemesi için geçici; istemciye gömülü "sır" değil (RLS'li sunucu sırrı yok).
-const _PASS := "weatherling_local_v1"
+## Yerel kayıt şifre anahtarı. Artık SABİT DEĞİL → cihaz türevli (device_pass).
+## Eski sürüm sabit bir anahtarla yazdı; load_state() bunu algılayıp migrasyon yapar.
+## Not: Tam donanım-destekli koruma için Android Keystore köprüsü hâlâ hedef (Plan §16);
+## device_pass, "tek sabit tüm kurulumları açar" zaafını kaldıran saf-GDScript ara adımdır.
+const _LEGACY_PASS := "weatherling_local_v1"
+const _KDF_SALT := "weatherling::save::v2"
+
+
+## Cihaza özgü şifre anahtarı türet (binary'de gömülü sabit yok).
+## OS.get_unique_id() yoksa (editör/masaüstü) stabil yedek kullanılır. Saf — test edilir.
+static func device_pass() -> String:
+	var uid := OS.get_unique_id()
+	if uid == "":
+		uid = "weatherling-local-fallback"
+	return (_KDF_SALT + "|" + uid).sha256_text()
 
 ## CreatureState üzerinde serileştirilecek alanlar (migrasyon-dostu açık liste).
 const PROPS := [
@@ -35,7 +47,7 @@ func has_save() -> bool:
 
 func save_state(state: CreatureState) -> bool:
 	var data := _to_dict(state)
-	var f := FileAccess.open_encrypted_with_pass(PATH, FileAccess.WRITE, _PASS)
+	var f := FileAccess.open_encrypted_with_pass(PATH, FileAccess.WRITE, device_pass())
 	if f == null:
 		push_error("SaveService: write açılamadı (%s)" % FileAccess.get_open_error())
 		return false
@@ -48,7 +60,12 @@ func save_state(state: CreatureState) -> bool:
 func load_state() -> CreatureState:
 	if not has_save():
 		return null
-	var f := FileAccess.open_encrypted_with_pass(PATH, FileAccess.READ, _PASS)
+	# Önce cihaz anahtarı; başarısızsa eski sabit anahtar (migrasyon).
+	var migrated := false
+	var f := FileAccess.open_encrypted_with_pass(PATH, FileAccess.READ, device_pass())
+	if f == null:
+		f = FileAccess.open_encrypted_with_pass(PATH, FileAccess.READ, _LEGACY_PASS)
+		migrated = true
 	if f == null:
 		push_error("SaveService: read açılamadı (%s)" % FileAccess.get_open_error())
 		return null
@@ -56,7 +73,10 @@ func load_state() -> CreatureState:
 	f.close()
 	if typeof(data) != TYPE_DICTIONARY:
 		return null
-	return _from_dict(data)
+	var state := _from_dict(data)
+	if migrated:
+		save_state(state)  # cihaz anahtarıyla yeniden yaz → bir daha legacy gerekmez
+	return state
 
 
 func delete_save() -> void:
