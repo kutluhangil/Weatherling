@@ -576,3 +576,25 @@ msgstr "Yorgun... önce dinlenmeli."
 
 msgid "SKILL_ROOT"
 msgstr "Temel Bağ"
+
+# --- Oda dekor ---
+msgid "MENU_ROOM"
+msgstr "Oda"
+
+msgid "ROOM_TITLE"
+msgstr "Odanı Düzenle"
+
+msgid "FURN_plant"
+msgstr "Bitki"
+
+msgid "FURN_lamp"
+msgstr "Lamba"
+
+msgid "FURN_rug"
+msgstr "Halı"
+
+msgid "FURN_poster"
+msgstr "Poster"
+
+msgid "FURN_record"
+msgstr "Plak"

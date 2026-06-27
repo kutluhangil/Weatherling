@@ -1,29 +1,29 @@
-## Hava Avcısı — düşen taneleri yakala. (Plan §6.2) Enerji harcar, 0'da ceza yok.
-## Ödül: coin + bond XP, high-score stats'a. Kod-tabanlı (sürüm-bağımsız).
-class_name RainCatcher
+## Ritim Ormanı — işaretçi merkeze gelince dokun. (Plan §6.2) Enerji harcar, ceza yok.
+class_name RhythmForest
 extends Control
 
 signal closed
 
 const DURATION := 30.0
-const ENERGY_COST := 15.0
-const DROP_TEX := "res://art/particles/raindrop.svg"
-const SPAWN_MIN := 0.35
-const SPAWN_MAX := 0.8
-const FALL_SPEED := 320.0
+const ENERGY_COST := 20.0
+const BAR_W := 300.0
+const TOL := 30.0
 
 var _score := 0
 var _time_left := 0.0
-var _spawn_t := 0.0
 var _playing := false
-var _drops: Array[TextureRect] = []
 var _hud: Label
+var _pos := 0.0
+var _dir := 1.0
+var _speed := 0.7
+var _flash := 0.0
+var _flash_good := true
 
 
 func _ready() -> void:
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 	var bg := ColorRect.new()
-	bg.color = Palette.SURFACE
+	bg.color = Palette.SURFACE_CONTAINER
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(bg)
@@ -33,22 +33,25 @@ func _ready() -> void:
 	_hud.add_theme_font_size_override("font_size", 18)
 	_hud.add_theme_color_override("font_color", Palette.ON_SURFACE)
 	add_child(_hud)
+	var tip := Label.new()
+	tip.text = tr("MG_RHYTHM_DESC")
+	tip.position = Vector2(20, 52)
+	tip.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	tip.add_theme_font_size_override("font_size", 12)
+	tip.add_theme_color_override("font_color", Palette.ON_SURFACE_VARIANT)
+	add_child(tip)
 	set_process(false)
 
 
-## Skor → ödül. (Saf — test edilir.)
-static func rewards_for_score(score: int) -> Dictionary:
-	return {"coins": score, "xp": int(ceil(score * 0.5))}
-
-
-## Enerji yetiyorsa başlat. Yetmiyorsa false (dinlenmeli, ceza yok).
 func start() -> bool:
 	if not NeedsService.spend_energy(ENERGY_COST):
 		_show_result(tr("MG_ENERGY_LOW"))
 		return false
 	_score = 0
 	_time_left = DURATION
-	_spawn_t = 0.0
+	_pos = 0.0
+	_dir = 1.0
+	_speed = 0.7
 	_playing = true
 	set_process(true)
 	return true
@@ -57,64 +60,66 @@ func start() -> bool:
 func _process(delta: float) -> void:
 	if not _playing:
 		return
-	GameManager.request_active_frames(0.5)  # oynarken 60 FPS (idle 30'a düşmesin)
+	GameManager.request_active_frames(0.5)
 	_time_left -= delta
 	_hud.text = "%s: %d   ⏱ %d" % [tr("MG_SCORE"), _score, ceil(_time_left)]
-	_spawn_t -= delta
-	if _spawn_t <= 0.0:
-		_spawn()
-		_spawn_t = randf_range(SPAWN_MIN, SPAWN_MAX)
-	for d in _drops.duplicate():
-		d.position.y += FALL_SPEED * delta
-		if d.position.y > size.y + 40.0:
-			_drops.erase(d)
-			d.queue_free()
+	_pos += _dir * _speed * delta
+	if _pos >= 1.0:
+		_pos = 1.0
+		_dir = -1.0
+	elif _pos <= 0.0:
+		_pos = 0.0
+		_dir = 1.0
+	if _flash > 0.0:
+		_flash -= delta
+	queue_redraw()
 	if _time_left <= 0.0:
 		_end()
 
 
-func _spawn() -> void:
-	var d := TextureRect.new()
-	if ResourceLoader.exists(DROP_TEX):
-		d.texture = load(DROP_TEX)
-	d.custom_minimum_size = Vector2(44, 44)
-	d.size = Vector2(44, 44)
-	d.position = Vector2(randf_range(20.0, maxf(40.0, size.x - 60.0)), -44.0)
-	d.modulate = Palette.STATUS_ENERGY
-	d.mouse_filter = Control.MOUSE_FILTER_STOP
-	d.gui_input.connect(_on_drop_input.bind(d))
-	add_child(d)
-	_drops.append(d)
+func _draw() -> void:
+	if not _playing:
+		return
+	var tl := (size.x - BAR_W) / 2.0
+	var ty := size.y * 0.55
+	draw_rect(Rect2(tl, ty - 4.0, BAR_W, 8.0), Palette.SURFACE_CONTAINER_LOWEST)
+	var zone_col := Palette.SURFACE_CONTAINER_HIGH
+	if _flash > 0.0:
+		zone_col = Color(0.4, 0.85, 0.45) if _flash_good else Palette.STATUS_HUNGER
+	var zx := tl + BAR_W / 2.0
+	draw_rect(Rect2(zx - TOL, ty - 16.0, TOL * 2.0, 32.0), zone_col)
+	var mx := tl + _pos * BAR_W
+	draw_rect(Rect2(mx - 3.0, ty - 22.0, 6.0, 44.0), Palette.HORIZON_GLOW)
 
 
-func _on_drop_input(event: InputEvent, d: TextureRect) -> void:
+func _input(event: InputEvent) -> void:
 	var hit: bool = (event is InputEventScreenTouch and event.pressed) \
 		or (event is InputEventMouseButton and event.pressed)
 	if hit and _playing:
+		_try_hit()
+		get_viewport().set_input_as_handled()
+
+
+func _try_hit() -> void:
+	if absf(_pos - 0.5) * BAR_W < TOL:
 		_score += 1
-		_drops.erase(d)
-		d.queue_free()
+		_flash_good = true
+		_speed = minf(_speed + 0.04, 1.8)
+	else:
+		_flash_good = false
+	_flash = 0.3
 
 
 func _end() -> void:
 	_playing = false
 	set_process(false)
-	for d in _drops:
-		d.queue_free()
-	_drops.clear()
-	var r := rewards_for_score(_score)
+	var r := RainCatcher.rewards_for_score(_score)
 	EconomyService.add_coins(r.coins)
 	GameManager.grant_xp(r.xp)
-	_save_highscore(_score)
-	_show_result("%s\n%s: %d\n🪙 +%d    XP +%d" % [tr("MG_DONE"), tr("MG_SCORE"), _score, r.coins, r.xp])
-
-
-func _save_highscore(score: int) -> void:
 	var s := GameManager.current_state()
-	if s == null:
-		return
-	if score > int(s.stats.get("mg_rain_high", 0)):
-		s.stats["mg_rain_high"] = score
+	if s != null and _score > int(s.stats.get("mg_rhythm_high", 0)):
+		s.stats["mg_rhythm_high"] = _score
+	_show_result("%s\n%s: %d\n🪙 +%d    XP +%d" % [tr("MG_DONE"), tr("MG_SCORE"), _score, r.coins, r.xp])
 
 
 func _show_result(msg: String) -> void:

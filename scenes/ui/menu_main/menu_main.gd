@@ -4,6 +4,7 @@ extends Control
 signal open_skills
 signal open_shop
 signal open_wardrobe
+signal open_room
 signal open_journal
 signal open_achievements
 signal open_account
@@ -16,6 +17,7 @@ func _ready() -> void:
 	$Panel/VBox/Skills.text = tr("ACTION_SKILLS")
 	$Panel/VBox/Shop.text = tr("ACTION_SHOP")
 	$Panel/VBox/Wardrobe.text = tr("MENU_WARDROBE")
+	$Panel/VBox/Room.text = tr("MENU_ROOM")
 	$Panel/VBox/Journal.text = tr("MENU_JOURNAL")
 	$Panel/VBox/Achievements.text = tr("MENU_ACHIEVEMENTS")
 	$Panel/VBox/Account.text = tr("MENU_ACCOUNT")
@@ -24,6 +26,7 @@ func _ready() -> void:
 	$Panel/VBox/Skills.pressed.connect(_emit_and_close.bind("open_skills"))
 	$Panel/VBox/Shop.pressed.connect(_emit_and_close.bind("open_shop"))
 	$Panel/VBox/Wardrobe.pressed.connect(_emit_and_close.bind("open_wardrobe"))
+	$Panel/VBox/Room.pressed.connect(_emit_and_close.bind("open_room"))
 	$Panel/VBox/Journal.pressed.connect(_emit_and_close.bind("open_journal"))
 	$Panel/VBox/Achievements.pressed.connect(_emit_and_close.bind("open_achievements"))
 	$Panel/VBox/Account.pressed.connect(_emit_and_close.bind("open_account"))

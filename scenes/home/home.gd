@@ -14,6 +14,7 @@ extends Control
 @onready var achievements_panel: Control = $HUD/PanelAchievements
 @onready var journal_panel: Control = $HUD/PanelJournal
 @onready var play_screen: Control = $HUD/PlayScreen
+@onready var room_panel: Control = $HUD/RoomDecor
 
 
 func _ready() -> void:
@@ -33,6 +34,7 @@ func _ready() -> void:
 	menu.open_settings.connect(settings_panel.open)
 	menu.open_achievements.connect(achievements_panel.open)
 	menu.open_journal.connect(journal_panel.open)
+	menu.open_room.connect(room_panel.open)
 
 
 func _on_play() -> void:

@@ -2,6 +2,8 @@
 extends Control
 
 const RAIN := preload("res://scenes/minigames/rain_catcher/rain_catcher.tscn")
+const STAR := preload("res://scenes/minigames/star_connect/star_connect.tscn")
+const RHYTHM := preload("res://scenes/minigames/rhythm_forest/rhythm_forest.tscn")
 
 @onready var _dim: ColorRect = $Dim
 @onready var _panel: PanelContainer = $Panel
@@ -32,10 +34,10 @@ func _rebuild() -> void:
 	for c in _list.get_children():
 		c.queue_free()
 	var s := GameManager.current_state()
-	var high: int = int(s.stats.get("mg_rain_high", 0)) if s != null else 0
-	_add_card("MG_RAIN", "MG_RAIN_DESC", 15, true, high, _launch_rain)
-	_add_card("MG_STAR", "MG_STAR_DESC", 10, false, 0, Callable())
-	_add_card("MG_RHYTHM", "MG_RHYTHM_DESC", 20, false, 0, Callable())
+	var stats: Dictionary = s.stats if s != null else {}
+	_add_card("MG_RAIN", "MG_RAIN_DESC", 15, true, int(stats.get("mg_rain_high", 0)), _launch.bind(RAIN))
+	_add_card("MG_STAR", "MG_STAR_DESC", 10, true, int(stats.get("mg_star_high", 0)), _launch.bind(STAR))
+	_add_card("MG_RHYTHM", "MG_RHYTHM_DESC", 20, true, int(stats.get("mg_rhythm_high", 0)), _launch.bind(RHYTHM))
 
 
 func _add_card(title_key: String, desc_key: String, cost: int, playable: bool, high: int, cb: Callable) -> void:
@@ -74,8 +76,8 @@ func _add_card(title_key: String, desc_key: String, cost: int, playable: bool, h
 	_list.add_child(card)
 
 
-func _launch_rain() -> void:
-	var g := RAIN.instantiate() as RainCatcher
+func _launch(scene: PackedScene) -> void:
+	var g := scene.instantiate()
 	add_child(g)
-	g.closed.connect(func(): if is_instance_valid(g): g.queue_free(); _rebuild())
-	g.start()  # enerji yetmezse kendi "dinlenmeli" sonucunu gösterir
+	g.connect("closed", func(): if is_instance_valid(g): g.queue_free(); _rebuild())
+	g.call("start")  # enerji yetmezse oyun kendi "dinlenmeli" sonucunu gösterir

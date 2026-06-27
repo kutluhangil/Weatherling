@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3]
+[gd_scene load_steps=21 format=3]
 
 [ext_resource type="Script" path="res://scenes/home/home.gd" id="1_home"]
 [ext_resource type="PackedScene" path="res://scenes/scene_background/scene_background.tscn" id="20_bg"]
 [ext_resource type="PackedScene" path="res://scenes/minigames/play_screen.tscn" id="24_play"]
+[ext_resource type="PackedScene" path="res://scenes/ui/panel_room/room_decor.tscn" id="25_room"]
 [ext_resource type="Script" path="res://scenes/ui/hud/hud_safe_area.gd" id="17_safe"]
 [ext_resource type="PackedScene" path="res://scenes/ui/hud/top_bar.tscn" id="21_top"]
 [ext_resource type="PackedScene" path="res://scenes/ui/hud/bottom_nav.tscn" id="22_nav"]
@@ -72,3 +73,5 @@ offset_bottom = 200.0
 [node name="PanelJournal" parent="HUD" instance=ExtResource("19_journal")]
 
 [node name="PlayScreen" parent="HUD" instance=ExtResource("24_play")]
+
+[node name="RoomDecor" parent="HUD" instance=ExtResource("25_room")]

@@ -576,3 +576,25 @@ msgstr "Too tired... needs rest first."
 
 msgid "SKILL_ROOT"
 msgstr "Core Bond"
+
+# --- Room decor ---
+msgid "MENU_ROOM"
+msgstr "Room"
+
+msgid "ROOM_TITLE"
+msgstr "Decorate Room"
+
+msgid "FURN_plant"
+msgstr "Plant"
+
+msgid "FURN_lamp"
+msgstr "Lamp"
+
+msgid "FURN_rug"
+msgstr "Rug"
+
+msgid "FURN_poster"
+msgstr "Poster"
+
+msgid "FURN_record"
+msgstr "Record"

@@ -6,6 +6,9 @@ extends TextureRect
 const _STATE_NAMES := ["clear", "clouds", "fog", "rain", "snow", "thunder", "windy"]
 const _PHASES := ["dawn", "day", "dusk", "night"]
 
+var _current_path := ""
+var _pending := ""
+
 
 func _ready() -> void:
 	expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -24,7 +27,31 @@ static func bg_key(state: int, phase: String) -> String:
 	return "res://art/backgrounds/%s_%s.png" % [sname, ph]
 
 
-## İllüstrasyon varsa göster; yoksa şeffaf kal (arka renk .tscn'deki ColorRect'ten gelir).
+## İllüstrasyon varsa göster (THREADED → büyük PNG değişiminde takılma yok); yoksa şeffaf
+## kal (arka renk .tscn'deki ColorRect). (Perf: Plan §15 async yükleme)
 func refresh() -> void:
 	var path := bg_key(WeatherService.state, TimeService.get_phase())
-	texture = load(path) if ResourceLoader.exists(path) else null
+	if path == _current_path and texture != null:
+		return
+	if not ResourceLoader.exists(path):
+		texture = null
+		_current_path = path
+		return
+	_pending = path
+	ResourceLoader.load_threaded_request(path)
+	set_process(true)
+
+
+func _process(_delta: float) -> void:
+	if _pending == "":
+		set_process(false)
+		return
+	var st := ResourceLoader.load_threaded_get_status(_pending)
+	if st == ResourceLoader.THREAD_LOAD_LOADED:
+		texture = ResourceLoader.load_threaded_get(_pending)
+		_current_path = _pending
+		_pending = ""
+		set_process(false)
+	elif st != ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+		_pending = ""  # FAILED / INVALID → fallback rengi kalır
+		set_process(false)
