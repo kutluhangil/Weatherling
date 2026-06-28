@@ -21,8 +21,11 @@ const STAGE_SCALE := {
 @export var touch_radius: float = 95.0
 
 @onready var visual: Node2D = $Visual
+@onready var body: Sprite2D = $Visual/Body
 @onready var face: Node2D = $Visual/Face
 @onready var blink_timer: Timer = $BlinkTimer
+
+const PLACEHOLDER_BODY := "res://art/creature/placeholder/body.svg"
 
 var state: int = State.IDLE
 var _t: float = 0.0
@@ -47,9 +50,19 @@ func _ready() -> void:
 ## Yaşam evresine göre palet + taban ölçek. (Faz 5)
 func _apply_stage_look() -> void:
 	var id := LifeStageService.current_id()
-	visual.modulate = STAGE_PALETTE.get(id, Color.WHITE)
 	var sc: float = STAGE_SCALE.get(id, 1.0)
 	_visual_base = Vector2(sc, sc)
+	# Evre sprite'ı varsa gerçek art'ı kullan (gözler gömülü → placeholder yüzü gizle);
+	# yoksa placeholder gövde + kod gözleri + evre palet tonu. (Auto-fit: art gelince oturur)
+	var sprite_path := "res://art/creature/%s.png" % id
+	if ResourceLoader.exists(sprite_path):
+		body.texture = load(sprite_path)
+		face.visible = false
+		visual.modulate = Color.WHITE
+	else:
+		body.texture = load(PLACEHOLDER_BODY)
+		face.visible = true
+		visual.modulate = STAGE_PALETTE.get(id, Color.WHITE)
 
 
 func _process(delta: float) -> void:

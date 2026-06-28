@@ -17,6 +17,16 @@ func _ready() -> void:
 	_start.text = tr("ONBOARD_START")
 	_name.placeholder_text = "Weatherling"
 	_start.pressed.connect(_on_start)
+	# Yumurta illüstrasyonu varsa başlığın altına koy (yoksa sade form). Auto-fit.
+	var egg_path := "res://art/ui/onboarding/egg.png"
+	if ResourceLoader.exists(egg_path):
+		var egg := TextureRect.new()
+		egg.texture = load(egg_path)
+		egg.custom_minimum_size = Vector2(0, 200)
+		egg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		egg.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		_box.add_child(egg)
+		_box.move_child(egg, 1)
 
 
 func _on_start() -> void:
