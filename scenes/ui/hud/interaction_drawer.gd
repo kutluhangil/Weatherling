@@ -7,8 +7,8 @@ signal feed_pressed
 const SECONDARY := ["hygiene", "health", "social"]
 const SEC_LABELS := {"hygiene": "NEED_HYGIENE", "health": "NEED_HEALTH", "social": "NEED_SOCIAL"}
 const ICONS := {
-	"feed": "res://art/ui/icons/feed.svg", "play": "res://art/ui/icons/play.svg",
-	"sleep": "res://art/ui/icons/sleep.svg", "clean": "res://art/ui/icons/clean.svg",
+	"feed": "res://art/ui/icons/action/feed_action.png", "play": "res://art/ui/icons/action/sun_action.png",
+	"sleep": "res://art/ui/icons/action/sleep_action.png", "clean": "res://art/ui/icons/action/water_action.png",
 }
 
 @onready var _dim: ColorRect = $Dim
