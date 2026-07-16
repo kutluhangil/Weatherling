@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3]
+[gd_scene load_steps=22 format=3]
 
 [ext_resource type="Script" path="res://scenes/home/home.gd" id="1_home"]
 [ext_resource type="PackedScene" path="res://scenes/scene_background/scene_background.tscn" id="20_bg"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/panel_wardrobe/panel_wardrobe.tscn" id="14_wardrobe"]
 [ext_resource type="PackedScene" path="res://scenes/ui/panel_account/panel_account.tscn" id="15_account"]
 [ext_resource type="PackedScene" path="res://scenes/ui/panel_settings/panel_settings.tscn" id="16_settings"]
+[ext_resource type="Script" path="res://scenes/scene_background/day_night_light.gd" id="26_dnl"]
 
 [node name="Home" type="Control"]
 layout_mode = 3
@@ -31,6 +32,9 @@ grow_vertical = 2
 script = ExtResource("1_home")
 
 [node name="SceneBackground" parent="." instance=ExtResource("20_bg")]
+
+[node name="DayNightLight" type="CanvasModulate" parent="."]
+script = ExtResource("26_dnl")
 
 [node name="CreatureAnchor" type="Node2D" parent="."]
 position = Vector2(270, 560)

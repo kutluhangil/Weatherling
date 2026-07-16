@@ -598,3 +598,50 @@ msgstr "Poster"
 
 msgid "FURN_record"
 msgstr "Plak"
+
+# --- İnanç ritüel bildirimleri (FaithService, Plan §8) ---
+msgid "RITUAL_FAJR"
+msgstr "İmsak vakti geldi 🌙"
+
+msgid "RITUAL_DHUHR"
+msgstr "Öğle vakti 🕌"
+
+msgid "RITUAL_ASR"
+msgstr "İkindi vakti 🌤️"
+
+msgid "RITUAL_MAGHRIB"
+msgstr "Akşam vakti 🌅"
+
+msgid "RITUAL_ISHA"
+msgstr "Yatsı vakti 🌃"
+
+msgid "RITUAL_SUNDAY_SERVICE"
+msgstr "Pazar ayini vakti ⛪"
+
+msgid "RITUAL_DAILY_PRAYER"
+msgstr "Günlük dua anı 🙏"
+
+msgid "RITUAL_SHABBAT_START"
+msgstr "Şabat başlıyor 🕯️"
+
+msgid "RITUAL_SHABBAT_END"
+msgstr "Şabat bitiyor ✨"
+
+msgid "RITUAL_AARTI"
+msgstr "Aarti vakti 🪔"
+
+msgid "RITUAL_MEDITATION"
+msgstr "Meditasyon zamanı 🧘"
+
+msgid "RITUAL_MINDFULNESS"
+msgstr "Farkındalık anı 🌿"
+
+msgid "DEVOTION_NOTIF_BODY"
+msgstr "%s için huzurlu bir an."
+
+# --- İnanç paneli (Ayarlar) ---
+msgid "FAITH_PANEL_TITLE"
+msgstr "İnanç / Gelenek"
+
+msgid "FAITH_PANEL_DESC"
+msgstr "Yaratığın seçtiğin geleneği nazikçe yansıtır. İstediğin zaman değiştirebilir veya kapatabilirsin."

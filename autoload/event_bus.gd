@@ -30,6 +30,9 @@ signal skill_unlocked(skill_id: String)
 signal random_event(event_id: String)
 signal seasonal_event(event_id: String)
 
+# --- İnanç / ritüel (Plan §8, Faz 6) --------------------------------
+signal devotion_time(faith: String, ritual: String)   # "islam","fajr" | "christianity","sunday_service" vb.
+
 # --- Başarımlar / koleksiyon (Plan §22) -----------------------------
 signal achievement_unlocked(id: String)        # yeni başarım açıldı (bir kez)
 

@@ -598,3 +598,50 @@ msgstr "Poster"
 
 msgid "FURN_record"
 msgstr "Record"
+
+# --- Faith ritual notifications (FaithService, Plan §8) ---
+msgid "RITUAL_FAJR"
+msgstr "Time for Fajr prayer 🌙"
+
+msgid "RITUAL_DHUHR"
+msgstr "Dhuhr time 🕌"
+
+msgid "RITUAL_ASR"
+msgstr "Asr time 🌤️"
+
+msgid "RITUAL_MAGHRIB"
+msgstr "Maghrib time 🌅"
+
+msgid "RITUAL_ISHA"
+msgstr "Isha time 🌃"
+
+msgid "RITUAL_SUNDAY_SERVICE"
+msgstr "Sunday service time ⛪"
+
+msgid "RITUAL_DAILY_PRAYER"
+msgstr "Daily prayer moment 🙏"
+
+msgid "RITUAL_SHABBAT_START"
+msgstr "Shabbat is beginning 🕯️"
+
+msgid "RITUAL_SHABBAT_END"
+msgstr "Shabbat is ending ✨"
+
+msgid "RITUAL_AARTI"
+msgstr "Aarti time 🪔"
+
+msgid "RITUAL_MEDITATION"
+msgstr "Meditation time 🧘"
+
+msgid "RITUAL_MINDFULNESS"
+msgstr "Mindfulness moment 🌿"
+
+msgid "DEVOTION_NOTIF_BODY"
+msgstr "A peaceful moment for %s."
+
+# --- Faith panel (Settings) ---
+msgid "FAITH_PANEL_TITLE"
+msgstr "Faith / Tradition"
+
+msgid "FAITH_PANEL_DESC"
+msgstr "Your creature gently reflects the tradition you choose. You can change or remove it anytime."
