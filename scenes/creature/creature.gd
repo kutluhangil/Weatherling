@@ -26,16 +26,25 @@ const STAGE_SCALE := {
 @onready var blink_timer: Timer = $BlinkTimer
 
 const PLACEHOLDER_BODY := "res://art/creature/placeholder/body.svg"
+## VFX asset yolları (üretilmişse PNG, yoksa SVG fallback)
+const VFX_HEART   := "res://art/vfx/creature/heart.png"
+const VFX_HEART_F := "res://art/particles/heart.svg"
+const VFX_SLEEP_Z := "res://art/vfx/creature/sleep_z.png"
+const VFX_SPARKLE := "res://art/vfx/creature/sparkle.png"
 
 var state: int = State.IDLE
 var _t: float = 0.0
 var _visual_base: Vector2
 var _hearts: CPUParticles2D
+var _sleepy_zs: CPUParticles2D
+var _sparkles: CPUParticles2D
 var _pet_tween: Tween
 
 
 func _ready() -> void:
 	_make_hearts()
+	_make_sleep_zs()
+	_make_sparkles()
 	_apply_stage_look()
 	blink_timer.timeout.connect(_blink)
 	_schedule_blink()
@@ -79,6 +88,11 @@ func _process(delta: float) -> void:
 
 func set_state(new_state: int) -> void:
 	state = new_state
+	# Uyku geçişlerinde Z partikülleri
+	if new_state == State.SLEEP:
+		_sleepy_zs.emitting = true
+	else:
+		_sleepy_zs.emitting = false
 
 
 func _breath_speed() -> float:
@@ -147,6 +161,7 @@ func _on_petted() -> void:
 	if state == State.SLEEP:
 		set_state(State.IDLE)  # uyuyorsa nazikçe uyandır
 	_hearts.restart()
+	_sparkles.restart()
 	_squash()
 	set_state(State.HAPPY)
 	await get_tree().create_timer(1.2).timeout
@@ -216,7 +231,51 @@ func _make_hearts() -> void:
 	_hearts.scale_amount_min = 0.25
 	_hearts.scale_amount_max = 0.5
 	_hearts.color = Color(1.0, 0.45, 0.6)
-	var tex := load("res://art/particles/heart.svg")
-	if tex is Texture2D:
+	# PNG varsa onu kullan (kaliteli), yoksa SVG fallback.
+	var png_tex: Texture2D = load(VFX_HEART) if ResourceLoader.exists(VFX_HEART) else null
+	var tex: Texture2D = png_tex if png_tex != null else (load(VFX_HEART_F) if ResourceLoader.exists(VFX_HEART_F) else null)
+	if tex != null:
 		_hearts.texture = tex
 	add_child(_hearts)
+
+
+func _make_sleep_zs() -> void:
+	_sleepy_zs = CPUParticles2D.new()
+	_sleepy_zs.emitting = false
+	_sleepy_zs.one_shot = false
+	_sleepy_zs.amount = 4
+	_sleepy_zs.lifetime = 2.0
+	_sleepy_zs.explosiveness = 0.0
+	_sleepy_zs.position = Vector2(36, -90)
+	_sleepy_zs.direction = Vector2(0.4, -1)
+	_sleepy_zs.spread = 15.0
+	_sleepy_zs.gravity = Vector2(0, -10)
+	_sleepy_zs.initial_velocity_min = 10.0
+	_sleepy_zs.initial_velocity_max = 25.0
+	_sleepy_zs.scale_amount_min = 0.18
+	_sleepy_zs.scale_amount_max = 0.32
+	_sleepy_zs.color = Color(0.85, 0.92, 1.0, 0.85)
+	if ResourceLoader.exists(VFX_SLEEP_Z):
+		_sleepy_zs.texture = load(VFX_SLEEP_Z)
+	add_child(_sleepy_zs)
+
+
+func _make_sparkles() -> void:
+	_sparkles = CPUParticles2D.new()
+	_sparkles.emitting = false
+	_sparkles.one_shot = true
+	_sparkles.explosiveness = 0.9
+	_sparkles.amount = 8
+	_sparkles.lifetime = 0.7
+	_sparkles.position = Vector2(0, -50)
+	_sparkles.direction = Vector2(0, -1)
+	_sparkles.spread = 70.0
+	_sparkles.gravity = Vector2(0, 30)
+	_sparkles.initial_velocity_min = 60.0
+	_sparkles.initial_velocity_max = 130.0
+	_sparkles.scale_amount_min = 0.15
+	_sparkles.scale_amount_max = 0.35
+	_sparkles.color = Color(1.0, 0.9, 0.4)
+	if ResourceLoader.exists(VFX_SPARKLE):
+		_sparkles.texture = load(VFX_SPARKLE)
+	add_child(_sparkles)
