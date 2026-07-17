@@ -42,7 +42,7 @@ func _ready() -> void:
 
 
 func _refresh() -> void:
-	var wname := WEATHER_NAMES[WeatherService.state] if WeatherService.state < WEATHER_NAMES.size() else "CLEAR"
+	var wname: String = WEATHER_NAMES[WeatherService.state] if WeatherService.state < WEATHER_NAMES.size() else "CLEAR"
 	var line := "%s  %.0f°C" % [tr("WEATHER_" + wname), WeatherService.temp_c]
 	if WeatherService.is_offline:
 		line += "  ⚠"

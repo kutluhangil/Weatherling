@@ -59,7 +59,7 @@ func _rebuild() -> void:
 			continue
 		var col := i % 2
 		var rown := i / 2
-		var x := 80.0 if col == 0 else GW - 80.0
+		var x: float = 80.0 if col == 0 else GW - 80.0
 		var y := 150.0 + rown * 96.0
 		var center := Vector2(x, y)
 		var state := _state_for(node)
