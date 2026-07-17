@@ -104,8 +104,8 @@ func _on_http_done(result: int, code: int, _h: PackedStringArray, body: PackedBy
 		return
 	# Aladhan formatı: "05:14 (+03)", alırız HH:MM kısmı
 	_prayer_minutes.clear()
-	for name in _prayer_names:
-		var key := name.capitalize()
+	for pname in _prayer_names:
+		var key: String = String(pname).capitalize()
 		var raw: String = timings.get(key, "00:00")
 		_prayer_minutes.append(_time_str_to_min(raw))
 	_start_daily_tick()
