@@ -32,7 +32,7 @@ func _apply() -> void:
 	for c in _base:
 		if not is_instance_valid(c):
 			continue
-		var full := c.anchor_left == 0.0 and c.anchor_top == 0.0 \
+		var full: bool = c.anchor_left == 0.0 and c.anchor_top == 0.0 \
 			and c.anchor_right == 1.0 and c.anchor_bottom == 1.0
 		if full:
 			continue  # modal: tam kaplama kalsın
